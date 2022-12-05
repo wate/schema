@@ -1,50 +1,50 @@
 # wp_usermeta
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `wp_usermeta` (
   `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   PRIMARY KEY (`umeta_id`),
   KEY `user_id` (`user_id`),
   KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=198 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=[Redacted by tbls] DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name       | Type                | Default | Nullable | Children | Parents | Comment |
-| ---------- | ------------------- | ------- | -------- | -------- | ------- | ------- |
-| umeta_id   | bigint(20) unsigned |         | false    |          |         |         |
-| user_id    | bigint(20) unsigned | 0       | false    |          |         |         |
-| meta_key   | varchar(255)        |         | true     |          |         |         |
-| meta_value | longtext            |         | true     |          |         |         |
+| 名前         | タイプ                 | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
+| ---------- | ------------------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
+| umeta_id   | bigint(20) unsigned |              | false    | auto_increment   |            |            |          |
+| user_id    | bigint(20) unsigned | 0            | false    |                  |            |            |          |
+| meta_key   | varchar(255)        | NULL         | true     |                  |            |            |          |
+| meta_value | longtext            | NULL         | true     |                  |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition             |
+| 名前      | タイプ         | 定義                     |
 | ------- | ----------- | ---------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (umeta_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name     | Definition                          |
+| 名前       | 定義                                  |
 | -------- | ----------------------------------- |
 | meta_key | KEY meta_key (meta_key) USING BTREE |
 | user_id  | KEY user_id (user_id) USING BTREE   |
 | PRIMARY  | PRIMARY KEY (umeta_id) USING BTREE  |
 
-## Relations
+## ER図
 
-![er](wp_usermeta.png)
+![er](wp_usermeta.svg)
 
 ---
 

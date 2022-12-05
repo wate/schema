@@ -1,46 +1,46 @@
 # wp_term_relationships
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `wp_term_relationships` (
-  `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `term_order` int(11) NOT NULL DEFAULT '0',
+  `object_id` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `term_order` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`object_id`,`term_taxonomy_id`),
   KEY `term_taxonomy_id` (`term_taxonomy_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name             | Type                | Default | Nullable | Children | Parents | Comment |
-| ---------------- | ------------------- | ------- | -------- | -------- | ------- | ------- |
-| object_id        | bigint(20) unsigned | 0       | false    |          |         |         |
-| term_taxonomy_id | bigint(20) unsigned | 0       | false    |          |         |         |
-| term_order       | int(11)             | 0       | false    |          |         |         |
+| 名前               | タイプ                 | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ---------------- | ------------------- | ------------ | -------- | ---------- | ---------- | -------- |
+| object_id        | bigint(20) unsigned | 0            | false    |            |            |          |
+| term_taxonomy_id | bigint(20) unsigned | 0            | false    |            |            |          |
+| term_order       | int(11)             | 0            | false    |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition                                |
+| 名前      | タイプ         | 定義                                        |
 | ------- | ----------- | ----------------------------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (object_id, term_taxonomy_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name             | Definition                                            |
+| 名前               | 定義                                                    |
 | ---------------- | ----------------------------------------------------- |
 | term_taxonomy_id | KEY term_taxonomy_id (term_taxonomy_id) USING BTREE   |
 | PRIMARY          | PRIMARY KEY (object_id, term_taxonomy_id) USING BTREE |
 
-## Relations
+## ER図
 
-![er](wp_term_relationships.png)
+![er](wp_term_relationships.svg)
 
 ---
 

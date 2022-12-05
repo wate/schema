@@ -1,49 +1,51 @@
 # wp_options
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `wp_options` (
   `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `option_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `option_value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes',
+  `option_name` varchar(191) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `option_value` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `autoload` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
-  UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+  UNIQUE KEY `option_name` (`option_name`),
+  KEY `autoload` (`autoload`)
+) ENGINE=InnoDB AUTO_INCREMENT=[Redacted by tbls] DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name         | Type                | Default | Nullable | Children | Parents | Comment |
-| ------------ | ------------------- | ------- | -------- | -------- | ------- | ------- |
-| option_id    | bigint(20) unsigned |         | false    |          |         |         |
-| option_name  | varchar(191)        |         | false    |          |         |         |
-| option_value | longtext            |         | false    |          |         |         |
-| autoload     | varchar(20)         | yes     | false    |          |         |         |
+| 名前           | タイプ                 | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
+| ------------ | ------------------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
+| option_id    | bigint(20) unsigned |              | false    | auto_increment   |            |            |          |
+| option_name  | varchar(191)        | ''           | false    |                  |            |            |          |
+| option_value | longtext            |              | false    |                  |            |            |          |
+| autoload     | varchar(20)         | 'yes'        | false    |                  |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name        | Type        | Definition                           |
+| 名前          | タイプ         | 定義                                   |
 | ----------- | ----------- | ------------------------------------ |
 | option_name | UNIQUE      | UNIQUE KEY option_name (option_name) |
 | PRIMARY     | PRIMARY KEY | PRIMARY KEY (option_id)              |
 
-## Indexes
+## INDEX一覧
 
-| Name        | Definition                                       |
+| 名前          | 定義                                               |
 | ----------- | ------------------------------------------------ |
+| autoload    | KEY autoload (autoload) USING BTREE              |
 | PRIMARY     | PRIMARY KEY (option_id) USING BTREE              |
 | option_name | UNIQUE KEY option_name (option_name) USING BTREE |
 
-## Relations
+## ER図
 
-![er](wp_options.png)
+![er](wp_options.svg)
 
 ---
 

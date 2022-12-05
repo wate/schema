@@ -1,50 +1,50 @@
 # wp_postmeta
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `wp_postmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
+  `post_id` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=1803 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=[Redacted by tbls] DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name       | Type                | Default | Nullable | Children | Parents | Comment |
-| ---------- | ------------------- | ------- | -------- | -------- | ------- | ------- |
-| meta_id    | bigint(20) unsigned |         | false    |          |         |         |
-| post_id    | bigint(20) unsigned | 0       | false    |          |         |         |
-| meta_key   | varchar(255)        |         | true     |          |         |         |
-| meta_value | longtext            |         | true     |          |         |         |
+| 名前         | タイプ                 | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
+| ---------- | ------------------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
+| meta_id    | bigint(20) unsigned |              | false    | auto_increment   |            |            |          |
+| post_id    | bigint(20) unsigned | 0            | false    |                  |            |            |          |
+| meta_key   | varchar(255)        | NULL         | true     |                  |            |            |          |
+| meta_value | longtext            | NULL         | true     |                  |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition            |
+| 名前      | タイプ         | 定義                    |
 | ------- | ----------- | --------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (meta_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name     | Definition                          |
+| 名前       | 定義                                  |
 | -------- | ----------------------------------- |
 | meta_key | KEY meta_key (meta_key) USING BTREE |
 | post_id  | KEY post_id (post_id) USING BTREE   |
 | PRIMARY  | PRIMARY KEY (meta_id) USING BTREE   |
 
-## Relations
+## ER図
 
-![er](wp_postmeta.png)
+![er](wp_postmeta.svg)
 
 ---
 

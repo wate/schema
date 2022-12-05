@@ -1,50 +1,50 @@
 # wp_terms
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `wp_terms` (
   `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `slug` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `term_group` bigint(10) NOT NULL DEFAULT '0',
+  `name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `slug` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `term_group` bigint(10) NOT NULL DEFAULT 0,
   PRIMARY KEY (`term_id`),
   KEY `slug` (`slug`(191)),
   KEY `name` (`name`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=149 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=[Redacted by tbls] DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name       | Type                | Default | Nullable | Children | Parents | Comment |
-| ---------- | ------------------- | ------- | -------- | -------- | ------- | ------- |
-| term_id    | bigint(20) unsigned |         | false    |          |         |         |
-| name       | varchar(200)        |         | false    |          |         |         |
-| slug       | varchar(200)        |         | false    |          |         |         |
-| term_group | bigint(10)          | 0       | false    |          |         |         |
+| 名前         | タイプ                 | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
+| ---------- | ------------------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
+| term_id    | bigint(20) unsigned |              | false    | auto_increment   |            |            |          |
+| name       | varchar(200)        | ''           | false    |                  |            |            |          |
+| slug       | varchar(200)        | ''           | false    |                  |            |            |          |
+| term_group | bigint(10)          | 0            | false    |                  |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition            |
+| 名前      | タイプ         | 定義                    |
 | ------- | ----------- | --------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (term_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                        |
+| 名前      | 定義                                |
 | ------- | --------------------------------- |
 | name    | KEY name (name) USING BTREE       |
 | slug    | KEY slug (slug) USING BTREE       |
 | PRIMARY | PRIMARY KEY (term_id) USING BTREE |
 
-## Relations
+## ER図
 
-![er](wp_terms.png)
+![er](wp_terms.svg)
 
 ---
 

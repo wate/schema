@@ -1,66 +1,66 @@
 # wp_links
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `wp_links` (
   `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `link_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_target` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_visible` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Y',
-  `link_owner` bigint(20) unsigned NOT NULL DEFAULT '1',
-  `link_rating` int(11) NOT NULL DEFAULT '0',
+  `link_url` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_name` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_image` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_target` varchar(25) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_description` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_visible` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'Y',
+  `link_owner` bigint(20) unsigned NOT NULL DEFAULT 1,
+  `link_rating` int(11) NOT NULL DEFAULT 0,
   `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `link_rel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `link_notes` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `link_rel` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `link_notes` mediumtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `link_rss` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`link_id`),
   KEY `link_visible` (`link_visible`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name             | Type                | Default             | Nullable | Children | Parents | Comment |
-| ---------------- | ------------------- | ------------------- | -------- | -------- | ------- | ------- |
-| link_id          | bigint(20) unsigned |                     | false    |          |         |         |
-| link_url         | varchar(255)        |                     | false    |          |         |         |
-| link_name        | varchar(255)        |                     | false    |          |         |         |
-| link_image       | varchar(255)        |                     | false    |          |         |         |
-| link_target      | varchar(25)         |                     | false    |          |         |         |
-| link_description | varchar(255)        |                     | false    |          |         |         |
-| link_visible     | varchar(20)         | Y                   | false    |          |         |         |
-| link_owner       | bigint(20) unsigned | 1                   | false    |          |         |         |
-| link_rating      | int(11)             | 0                   | false    |          |         |         |
-| link_updated     | datetime            | 0000-00-00 00:00:00 | false    |          |         |         |
-| link_rel         | varchar(255)        |                     | false    |          |         |         |
-| link_notes       | mediumtext          |                     | false    |          |         |         |
-| link_rss         | varchar(255)        |                     | false    |          |         |         |
+| 名前               | タイプ                 | デフォルト値                | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
+| ---------------- | ------------------- | --------------------- | -------- | ---------------- | ---------- | ---------- | -------- |
+| link_id          | bigint(20) unsigned |                       | false    | auto_increment   |            |            |          |
+| link_url         | varchar(255)        | ''                    | false    |                  |            |            |          |
+| link_name        | varchar(255)        | ''                    | false    |                  |            |            |          |
+| link_image       | varchar(255)        | ''                    | false    |                  |            |            |          |
+| link_target      | varchar(25)         | ''                    | false    |                  |            |            |          |
+| link_description | varchar(255)        | ''                    | false    |                  |            |            |          |
+| link_visible     | varchar(20)         | 'Y'                   | false    |                  |            |            |          |
+| link_owner       | bigint(20) unsigned | 1                     | false    |                  |            |            |          |
+| link_rating      | int(11)             | 0                     | false    |                  |            |            |          |
+| link_updated     | datetime            | '0000-00-00 00:00:00' | false    |                  |            |            |          |
+| link_rel         | varchar(255)        | ''                    | false    |                  |            |            |          |
+| link_notes       | mediumtext          |                       | false    |                  |            |            |          |
+| link_rss         | varchar(255)        | ''                    | false    |                  |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition            |
+| 名前      | タイプ         | 定義                    |
 | ------- | ----------- | --------------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (link_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name         | Definition                                  |
+| 名前           | 定義                                          |
 | ------------ | ------------------------------------------- |
 | link_visible | KEY link_visible (link_visible) USING BTREE |
 | PRIMARY      | PRIMARY KEY (link_id) USING BTREE           |
 
-## Relations
+## ER図
 
-![er](wp_links.png)
+![er](wp_links.svg)
 
 ---
 
