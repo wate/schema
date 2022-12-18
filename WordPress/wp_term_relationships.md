@@ -19,11 +19,11 @@ CREATE TABLE `wp_term_relationships` (
 
 ## カラム一覧
 
-| 名前               | タイプ                 | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| ---------------- | ------------------- | ------------ | -------- | ---------- | ---------- | -------- |
-| object_id        | bigint(20) unsigned | 0            | false    |            |            |          |
-| term_taxonomy_id | bigint(20) unsigned | 0            | false    |            |            |          |
-| term_order       | int(11)             | 0            | false    |            |            |          |
+| 名前               | タイプ                 | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル                                   | コメント     |
+| ---------------- | ------------------- | ------------ | -------- | ---------- | --------------------------------------- | -------- |
+| object_id        | bigint(20) unsigned | 0            | false    |            |                                         |          |
+| term_taxonomy_id | bigint(20) unsigned | 0            | false    |            | [wp_term_taxonomy](wp_term_taxonomy.md) |          |
+| term_order       | int(11)             | 0            | false    |            |                                         |          |
 
 ## 制約一覧
 

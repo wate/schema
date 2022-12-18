@@ -8,8 +8,8 @@
 ```sql
 CREATE TABLE `wp_terms` (
   `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `slug` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `name` varchar(200) NOT NULL DEFAULT '',
+  `slug` varchar(200) NOT NULL DEFAULT '',
   `term_group` bigint(10) NOT NULL DEFAULT 0,
   PRIMARY KEY (`term_id`),
   KEY `slug` (`slug`(191)),
@@ -21,12 +21,12 @@ CREATE TABLE `wp_terms` (
 
 ## カラム一覧
 
-| 名前         | タイプ                 | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
-| ---------- | ------------------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
-| term_id    | bigint(20) unsigned |              | false    | auto_increment   |            |            |          |
-| name       | varchar(200)        | ''           | false    |                  |            |            |          |
-| slug       | varchar(200)        | ''           | false    |                  |            |            |          |
-| term_group | bigint(10)          | 0            | false    |                  |            |            |          |
+| 名前         | タイプ                 | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                                                                 | 親テーブル      | コメント     |
+| ---------- | ------------------- | ------------ | -------- | ---------------- | --------------------------------------------------------------------- | ---------- | -------- |
+| term_id    | bigint(20) unsigned |              | false    | auto_increment   | [wp_termmeta](wp_termmeta.md) [wp_term_taxonomy](wp_term_taxonomy.md) |            |          |
+| name       | varchar(200)        | ''           | false    |                  |                                                                       |            |          |
+| slug       | varchar(200)        | ''           | false    |                  |                                                                       |            |          |
+| term_group | bigint(10)          | 0            | false    |                  |                                                                       |            |          |
 
 ## 制約一覧
 

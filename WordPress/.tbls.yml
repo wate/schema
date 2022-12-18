@@ -71,10 +71,70 @@ detectVirtualRelations:
 ## ------------
 ## 外部参照制約
 ## ------------
-# relations:
-#   - table: logs
-#     columns:
-#       - user_id
-#     parentTable: users
-#     parentColumns:
-#       - id
+relations:
+  - table: wp_posts
+    columns:
+      - post_author
+    parentTable: wp_users
+    parentColumns:
+      - ID
+  - table: wp_posts
+    columns:
+      - post_parent
+    parentTable: wp_posts
+    parentColumns:
+      - ID
+  - table: wp_postmeta
+    columns:
+      - post_id
+    parentTable: wp_posts
+    parentColumns:
+      - ID
+  - table: wp_comments
+    columns:
+      - comment_post_ID
+    parentTable: wp_posts
+    parentColumns:
+      - ID
+  - table: wp_comments
+    columns:
+      - comment_parent
+    parentTable: wp_comments
+    parentColumns:
+      - comment_ID
+  - table: wp_comments
+    columns:
+      - user_id
+    parentTable: wp_users
+    parentColumns:
+      - ID
+  - table: wp_commentmeta
+    columns:
+      - comment_id
+    parentTable: wp_comments
+    parentColumns:
+      - comment_ID
+  - table: wp_usermeta
+    columns:
+      - user_id
+    parentTable: wp_users
+    parentColumns:
+      - ID
+  - table: wp_termmeta
+    columns:
+      - term_id
+    parentTable: wp_terms
+    parentColumns:
+      - term_id
+  - table: wp_term_taxonomy
+    columns:
+      - term_id
+    parentTable: wp_terms
+    parentColumns:
+      - term_id
+  - table: wp_term_relationships
+    columns:
+      - term_taxonomy_id
+    parentTable: wp_term_taxonomy
+    parentColumns:
+      - term_taxonomy_id

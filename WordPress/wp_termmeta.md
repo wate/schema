@@ -9,8 +9,8 @@
 CREATE TABLE `wp_termmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT 0,
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext DEFAULT NULL,
   PRIMARY KEY (`meta_id`),
   KEY `term_id` (`term_id`),
   KEY `meta_key` (`meta_key`(191))
@@ -21,12 +21,12 @@ CREATE TABLE `wp_termmeta` (
 
 ## カラム一覧
 
-| 名前         | タイプ                 | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
-| ---------- | ------------------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
-| meta_id    | bigint(20) unsigned |              | false    | auto_increment   |            |            |          |
-| term_id    | bigint(20) unsigned | 0            | false    |                  |            |            |          |
-| meta_key   | varchar(255)        | NULL         | true     |                  |            |            |          |
-| meta_value | longtext            | NULL         | true     |                  |            |            |          |
+| 名前         | タイプ                 | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル                   | コメント     |
+| ---------- | ------------------- | ------------ | -------- | ---------------- | ---------- | ----------------------- | -------- |
+| meta_id    | bigint(20) unsigned |              | false    | auto_increment   |            |                         |          |
+| term_id    | bigint(20) unsigned | 0            | false    |                  |            | [wp_terms](wp_terms.md) |          |
+| meta_key   | varchar(255)        | NULL         | true     |                  |            |                         |          |
+| meta_value | longtext            | NULL         | true     |                  |            |                         |          |
 
 ## 制約一覧
 
