@@ -1,9 +1,11 @@
 # wiki_content_versions
 
-## Description
+## 概要
+
+Wikiコンテンツバージョン
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `wiki_content_versions` (
@@ -24,35 +26,35 @@ CREATE TABLE `wiki_content_versions` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| wiki_content_id | int(11) |  | false |  |  |  |  |
-| page_id | int(11) |  | false |  |  |  |  |
-| author_id | int(11) | NULL | true |  |  |  |  |
-| data | longblob | NULL | true |  |  |  |  |
-| compression | varchar(6) | '' | true |  |  |  |  |
-| comments | varchar(1024) | '' | true |  |  |  |  |
-| updated_on | datetime |  | false |  |  |  |  |
-| version | int(11) |  | false |  |  |  |  |
+| 名前              | タイプ           | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル                             | コメント     |
+| --------------- | ------------- | ------------ | -------- | ---------------- | ---------- | --------------------------------- | -------- |
+| id              | int(11)       |              | false    | auto_increment   |            |                                   |          |
+| wiki_content_id | int(11)       |              | false    |                  |            | [wiki_contents](wiki_contents.md) |          |
+| page_id         | int(11)       |              | false    |                  |            | [wiki_pages](wiki_pages.md)       |          |
+| author_id       | int(11)       | NULL         | true     |                  |            | [users](users.md)                 |          |
+| data            | longblob      | NULL         | true     |                  |            |                                   |          |
+| compression     | varchar(6)    | ''           | true     |                  |            |                                   |          |
+| comments        | varchar(1024) | ''           | true     |                  |            |                                   |          |
+| updated_on      | datetime      |              | false    |                  |            |                                   |          |
+| version         | int(11)       |              | false    |                  |            |                                   |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                                        | 定義                                                                     |
+| ----------------------------------------- | ---------------------------------------------------------------------- |
 | index_wiki_content_versions_on_updated_on | KEY index_wiki_content_versions_on_updated_on (updated_on) USING BTREE |
-| wiki_content_versions_wcid | KEY wiki_content_versions_wcid (wiki_content_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| wiki_content_versions_wcid                | KEY wiki_content_versions_wcid (wiki_content_id) USING BTREE           |
+| PRIMARY                                   | PRIMARY KEY (id) USING BTREE                                           |
 
-## Relations
+## ER図
 
 ![er](wiki_content_versions.svg)
 

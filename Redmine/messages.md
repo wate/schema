@@ -1,9 +1,11 @@
 # messages
 
-## Description
+## 概要
+
+フォーラムメッセージ
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `messages` (
@@ -30,41 +32,41 @@ CREATE TABLE `messages` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| board_id | int(11) |  | false |  |  |  |  |
-| parent_id | int(11) | NULL | true |  |  |  |  |
-| subject | varchar(255) | '' | false |  |  |  |  |
-| content | text | NULL | true |  |  |  |  |
-| author_id | int(11) | NULL | true |  |  |  |  |
-| replies_count | int(11) | 0 | false |  |  |  |  |
-| last_reply_id | int(11) | NULL | true |  |  |  |  |
-| created_on | datetime |  | false |  |  |  |  |
-| updated_on | datetime |  | false |  |  |  |  |
-| locked | tinyint(1) | 0 | true |  |  |  |  |
-| sticky | int(11) | 0 | true |  |  |  |  |
+| 名前            | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                   | 親テーブル                   | コメント     |
+| ------------- | ------------ | ------------ | -------- | ---------------- | ----------------------- | ----------------------- | -------- |
+| id            | int(11)      |              | false    | auto_increment   | [messages](messages.md) |                         |          |
+| board_id      | int(11)      |              | false    |                  |                         | [boards](boards.md)     |          |
+| parent_id     | int(11)      | NULL         | true     |                  |                         | [messages](messages.md) |          |
+| subject       | varchar(255) | ''           | false    |                  |                         |                         |          |
+| content       | text         | NULL         | true     |                  |                         |                         |          |
+| author_id     | int(11)      | NULL         | true     |                  |                         | [users](users.md)       |          |
+| replies_count | int(11)      | 0            | false    |                  |                         |                         |          |
+| last_reply_id | int(11)      | NULL         | true     |                  |                         | [messages](messages.md) |          |
+| created_on    | datetime     |              | false    |                  |                         |                         |          |
+| updated_on    | datetime     |              | false    |                  |                         |                         |          |
+| locked        | tinyint(1)   | 0            | true     |                  |                         |                         |          |
+| sticky        | int(11)      | 0            | true     |                  |                         |                         |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| index_messages_on_author_id | KEY index_messages_on_author_id (author_id) USING BTREE |
-| index_messages_on_created_on | KEY index_messages_on_created_on (created_on) USING BTREE |
+| 名前                              | 定義                                                              |
+| ------------------------------- | --------------------------------------------------------------- |
+| index_messages_on_author_id     | KEY index_messages_on_author_id (author_id) USING BTREE         |
+| index_messages_on_created_on    | KEY index_messages_on_created_on (created_on) USING BTREE       |
 | index_messages_on_last_reply_id | KEY index_messages_on_last_reply_id (last_reply_id) USING BTREE |
-| messages_board_id | KEY messages_board_id (board_id) USING BTREE |
-| messages_parent_id | KEY messages_parent_id (parent_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| messages_board_id               | KEY messages_board_id (board_id) USING BTREE                    |
+| messages_parent_id              | KEY messages_parent_id (parent_id) USING BTREE                  |
+| PRIMARY                         | PRIMARY KEY (id) USING BTREE                                    |
 
-## Relations
+## ER図
 
 ![er](messages.svg)
 

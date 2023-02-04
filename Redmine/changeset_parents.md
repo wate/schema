@@ -1,9 +1,11 @@
 # changeset_parents
 
-## Description
+## 概要
+
+チェンジセット⇔チェンジセット
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `changeset_parents` (
@@ -16,21 +18,21 @@ CREATE TABLE `changeset_parents` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | -------- | ------- | ------- |
-| changeset_id | int(11) |  | false |  |  |  |
-| parent_id | int(11) |  | false |  |  |  |
+| 名前           | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル                       | コメント     |
+| ------------ | ------- | ------------ | -------- | ---------- | --------------------------- | -------- |
+| changeset_id | int(11) |              | false    |            | [changesets](changesets.md) |          |
+| parent_id    | int(11) |              | false    |            | [changesets](changesets.md) |          |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                              | 定義                                                             |
+| ------------------------------- | -------------------------------------------------------------- |
 | changeset_parents_changeset_ids | KEY changeset_parents_changeset_ids (changeset_id) USING BTREE |
-| changeset_parents_parent_ids | KEY changeset_parents_parent_ids (parent_id) USING BTREE |
+| changeset_parents_parent_ids    | KEY changeset_parents_parent_ids (parent_id) USING BTREE       |
 
-## Relations
+## ER図
 
 ![er](changeset_parents.svg)
 

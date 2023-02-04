@@ -1,9 +1,9 @@
 # note_visible_roles
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `note_visible_roles` (
@@ -20,31 +20,31 @@ CREATE TABLE `note_visible_roles` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | bigint(20) |  | false | auto_increment |  |  |  |
-| note_template_id | int(11) | NULL | true |  |  |  |  |
-| role_id | int(11) | NULL | true |  |  |  |  |
-| created_at | datetime |  | false |  |  |  |  |
-| updated_at | datetime |  | false |  |  |  |  |
+| 名前               | タイプ        | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル                               | コメント     |
+| ---------------- | ---------- | ------------ | -------- | ---------------- | ---------- | ----------------------------------- | -------- |
+| id               | bigint(20) |              | false    | auto_increment   |            |                                     |          |
+| note_template_id | int(11)    | NULL         | true     |                  |            | [note_templates](note_templates.md) |          |
+| role_id          | int(11)    | NULL         | true     |                  |            | [roles](roles.md)                   |          |
+| created_at       | datetime   |              | false    |                  |            |                                     |          |
+| updated_at       | datetime   |              | false    |                  |            |                                     |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                                           | 定義                                                                              |
+| -------------------------------------------- | ------------------------------------------------------------------------------- |
 | index_note_visible_roles_on_note_template_id | KEY index_note_visible_roles_on_note_template_id (note_template_id) USING BTREE |
-| index_note_visible_roles_on_role_id | KEY index_note_visible_roles_on_role_id (role_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| index_note_visible_roles_on_role_id          | KEY index_note_visible_roles_on_role_id (role_id) USING BTREE                   |
+| PRIMARY                                      | PRIMARY KEY (id) USING BTREE                                                    |
 
-## Relations
+## ER図
 
 ![er](note_visible_roles.svg)
 

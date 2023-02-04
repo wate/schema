@@ -1,9 +1,11 @@
 # users
 
-## Description
+## 概要
+
+ユーザー / グループ
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `users` (
@@ -37,48 +39,52 @@ CREATE TABLE `users` (
 
 </details>
 
-## Columns
+## ラベル
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| login | varchar(255) | '' | false |  |  |  |  |
-| hashed_password | varchar(40) | '' | false |  |  |  |  |
-| firstname | varchar(30) | '' | false |  |  |  |  |
-| lastname | varchar(255) | '' | false |  |  |  |  |
-| admin | tinyint(1) | 0 | false |  |  |  |  |
-| status | int(11) | 1 | false |  |  |  |  |
-| last_login_on | datetime | NULL | true |  |  |  |  |
-| language | varchar(5) | '' | true |  |  |  |  |
-| auth_source_id | int(11) | NULL | true |  |  |  |  |
-| created_on | timestamp | NULL | true |  |  |  |  |
-| updated_on | timestamp | NULL | true |  |  |  |  |
-| type | varchar(255) | NULL | true |  |  |  |  |
-| mail_notification | varchar(255) | '' | false |  |  |  |  |
-| salt | varchar(64) | NULL | true |  |  |  |  |
-| must_change_passwd | tinyint(1) | 0 | false |  |  |  |  |
-| passwd_changed_on | datetime | NULL | true |  |  |  |  |
-| twofa_scheme | varchar(255) | NULL | true |  |  |  |  |
-| twofa_totp_key | varchar(255) | NULL | true |  |  |  |  |
-| twofa_totp_last_used_at | int(11) | NULL | true |  |  |  |  |
-| twofa_required | tinyint(1) | 0 | true |  |  |  |  |
+`単一テーブル継承`
 
-## Constraints
+## カラム一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前                      | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 親テーブル                           | コメント                                 |
+| ----------------------- | ------------ | ------------ | -------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------ |
+| id                      | int(11)      |              | false    | auto_increment   | [user_preferences](user_preferences.md) [email_addresses](email_addresses.md) [groups_users](groups_users.md) [projects](projects.md) [issues](issues.md) [issue_categories](issue_categories.md) [wiki_contents](wiki_contents.md) [wiki_content_versions](wiki_content_versions.md) [news](news.md) [members](members.md) [time_entries](time_entries.md) [attachments](attachments.md) [messages](messages.md) [comments](comments.md) [watchers](watchers.md) [tokens](tokens.md) [changesets](changesets.md) [imports](imports.md) [journals](journals.md) [queries](queries.md) |                                 |                                      |
+| login                   | varchar(255) | ''           | false    |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 | ログインID                               |
+| hashed_password         | varchar(40)  | ''           | false    |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 | パスワード(ハッシュ化済み)                       |
+| firstname               | varchar(30)  | ''           | false    |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 | 名                                    |
+| lastname                | varchar(255) | ''           | false    |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 | 姓                                    |
+| admin                   | tinyint(1)   | 0            | false    |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 | システム管理者                              |
+| status                  | int(11)      | 1            | false    |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 |                                      |
+| last_login_on           | datetime     | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 |                                      |
+| language                | varchar(5)   | ''           | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 | 言語                                   |
+| auth_source_id          | int(11)      | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [auth_sources](auth_sources.md) |                                      |
+| created_on              | timestamp    | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 |                                      |
+| updated_on              | timestamp    | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 |                                      |
+| type                    | varchar(255) | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 | User:ユーザー<br>Group:グループ<br>          |
+| mail_notification       | varchar(255) | ''           | false    |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 | メール通知                                |
+| salt                    | varchar(64)  | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 |                                      |
+| must_change_passwd      | tinyint(1)   | 0            | false    |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 | 次回ログイン時にパスワード変更を強制                   |
+| passwd_changed_on       | datetime     | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 |                                      |
+| twofa_scheme            | varchar(255) | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 |                                      |
+| twofa_totp_key          | varchar(255) | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 |                                      |
+| twofa_totp_last_used_at | int(11)      | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 |                                      |
+| twofa_required          | tinyint(1)   | 0            | true     |                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                 |                                      |
+
+## 制約一覧
+
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                            | 定義                                                             |
+| ----------------------------- | -------------------------------------------------------------- |
 | index_users_on_auth_source_id | KEY index_users_on_auth_source_id (auth_source_id) USING BTREE |
-| index_users_on_id_and_type | KEY index_users_on_id_and_type (id, type) USING BTREE |
-| index_users_on_type | KEY index_users_on_type (type) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| index_users_on_id_and_type    | KEY index_users_on_id_and_type (id, type) USING BTREE          |
+| index_users_on_type           | KEY index_users_on_type (type) USING BTREE                     |
+| PRIMARY                       | PRIMARY KEY (id) USING BTREE                                   |
 
-## Relations
+## ER図
 
 ![er](users.svg)
 

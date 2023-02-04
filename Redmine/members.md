@@ -1,9 +1,11 @@
 # members
 
-## Description
+## 概要
+
+(プロジェクト)メンバー
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `members` (
@@ -21,33 +23,33 @@ CREATE TABLE `members` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| user_id | int(11) | 0 | false |  |  |  |  |
-| project_id | int(11) | 0 | false |  |  |  |  |
-| created_on | timestamp | NULL | true |  |  |  |  |
-| mail_notification | tinyint(1) | 0 | false |  |  |  |  |
+| 名前                | タイプ        | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                           | 親テーブル                   | コメント     |
+| ----------------- | ---------- | ------------ | -------- | ---------------- | ------------------------------- | ----------------------- | -------- |
+| id                | int(11)    |              | false    | auto_increment   | [member_roles](member_roles.md) |                         |          |
+| user_id           | int(11)    | 0            | false    |                  |                                 | [users](users.md)       |          |
+| project_id        | int(11)    | 0            | false    |                  |                                 | [projects](projects.md) |          |
+| created_on        | timestamp  | NULL         | true     |                  |                                 |                         |          |
+| mail_notification | tinyint(1) | 0            | false    |                  |                                 |                         |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| index_members_on_user_id_and_project_id | UNIQUE | UNIQUE KEY index_members_on_user_id_and_project_id (user_id, project_id) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
+| 名前                                      | タイプ         | 定義                                                                       |
+| --------------------------------------- | ----------- | ------------------------------------------------------------------------ |
+| index_members_on_user_id_and_project_id | UNIQUE      | UNIQUE KEY index_members_on_user_id_and_project_id (user_id, project_id) |
+| PRIMARY                                 | PRIMARY KEY | PRIMARY KEY (id)                                                         |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| index_members_on_project_id | KEY index_members_on_project_id (project_id) USING BTREE |
-| index_members_on_user_id | KEY index_members_on_user_id (user_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| 名前                                      | 定義                                                                                   |
+| --------------------------------------- | ------------------------------------------------------------------------------------ |
+| index_members_on_project_id             | KEY index_members_on_project_id (project_id) USING BTREE                             |
+| index_members_on_user_id                | KEY index_members_on_user_id (user_id) USING BTREE                                   |
+| PRIMARY                                 | PRIMARY KEY (id) USING BTREE                                                         |
 | index_members_on_user_id_and_project_id | UNIQUE KEY index_members_on_user_id_and_project_id (user_id, project_id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](members.svg)
 

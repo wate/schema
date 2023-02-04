@@ -1,9 +1,11 @@
 # changesets
 
-## Description
+## 概要
+
+チェンジセット(コミット)
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `changesets` (
@@ -27,39 +29,39 @@ CREATE TABLE `changesets` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| repository_id | int(11) |  | false |  |  |  |  |
-| revision | varchar(255) |  | false |  |  |  |  |
-| committer | varchar(255) | NULL | true |  |  |  |  |
-| committed_on | datetime |  | false |  |  |  |  |
-| comments | longtext | NULL | true |  |  |  |  |
-| commit_date | date | NULL | true |  |  |  |  |
-| scmid | varchar(255) | NULL | true |  |  |  |  |
-| user_id | int(11) | NULL | true |  |  |  |  |
+| 名前            | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                                                                                                     | 親テーブル                           | コメント     |
+| ------------- | ------------ | ------------ | -------- | ---------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------- | -------- |
+| id            | int(11)      |              | false    | auto_increment   | [changeset_parents](changeset_parents.md) [changesets_issues](changesets_issues.md) [changes](changes.md) |                                 |          |
+| repository_id | int(11)      |              | false    |                  |                                                                                                           | [repositories](repositories.md) |          |
+| revision      | varchar(255) |              | false    |                  |                                                                                                           |                                 |          |
+| committer     | varchar(255) | NULL         | true     |                  |                                                                                                           |                                 |          |
+| committed_on  | datetime     |              | false    |                  |                                                                                                           |                                 |          |
+| comments      | longtext     | NULL         | true     |                  |                                                                                                           |                                 |          |
+| commit_date   | date         | NULL         | true     |                  |                                                                                                           |                                 |          |
+| scmid         | varchar(255) | NULL         | true     |                  |                                                                                                           |                                 |          |
+| user_id       | int(11)      | NULL         | true     |                  |                                                                                                           | [users](users.md)               |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| changesets_repos_rev | UNIQUE | UNIQUE KEY changesets_repos_rev (repository_id, revision) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
+| 名前                   | タイプ         | 定義                                                        |
+| -------------------- | ----------- | --------------------------------------------------------- |
+| changesets_repos_rev | UNIQUE      | UNIQUE KEY changesets_repos_rev (repository_id, revision) |
+| PRIMARY              | PRIMARY KEY | PRIMARY KEY (id)                                          |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| changesets_repos_scmid | KEY changesets_repos_scmid (repository_id, scmid) USING BTREE |
-| index_changesets_on_committed_on | KEY index_changesets_on_committed_on (committed_on) USING BTREE |
-| index_changesets_on_repository_id | KEY index_changesets_on_repository_id (repository_id) USING BTREE |
-| index_changesets_on_user_id | KEY index_changesets_on_user_id (user_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
-| changesets_repos_rev | UNIQUE KEY changesets_repos_rev (repository_id, revision) USING BTREE |
+| 名前                                | 定義                                                                    |
+| --------------------------------- | --------------------------------------------------------------------- |
+| changesets_repos_scmid            | KEY changesets_repos_scmid (repository_id, scmid) USING BTREE         |
+| index_changesets_on_committed_on  | KEY index_changesets_on_committed_on (committed_on) USING BTREE       |
+| index_changesets_on_repository_id | KEY index_changesets_on_repository_id (repository_id) USING BTREE     |
+| index_changesets_on_user_id       | KEY index_changesets_on_user_id (user_id) USING BTREE                 |
+| PRIMARY                           | PRIMARY KEY (id) USING BTREE                                          |
+| changesets_repos_rev              | UNIQUE KEY changesets_repos_rev (repository_id, revision) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](changesets.svg)
 

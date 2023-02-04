@@ -1,9 +1,11 @@
 # changes
 
-## Description
+## 概要
+
+チェンジセットの内容
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `changes` (
@@ -22,33 +24,33 @@ CREATE TABLE `changes` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| changeset_id | int(11) |  | false |  |  |  |  |
-| action | varchar(1) | '' | false |  |  |  |  |
-| path | text |  | false |  |  |  |  |
-| from_path | text | NULL | true |  |  |  |  |
-| from_revision | varchar(255) | NULL | true |  |  |  |  |
-| revision | varchar(255) | NULL | true |  |  |  |  |
-| branch | varchar(255) | NULL | true |  |  |  |  |
+| 名前            | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル                       | コメント     |
+| ------------- | ------------ | ------------ | -------- | ---------------- | ---------- | --------------------------- | -------- |
+| id            | int(11)      |              | false    | auto_increment   |            |                             |          |
+| changeset_id  | int(11)      |              | false    |                  |            | [changesets](changesets.md) |          |
+| action        | varchar(1)   | ''           | false    |                  |            |                             |          |
+| path          | text         |              | false    |                  |            |                             |          |
+| from_path     | text         | NULL         | true     |                  |            |                             |          |
+| from_revision | varchar(255) | NULL         | true     |                  |            |                             |          |
+| revision      | varchar(255) | NULL         | true     |                  |            |                             |          |
+| branch        | varchar(255) | NULL         | true     |                  |            |                             |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                      | 定義                                                     |
+| ----------------------- | ------------------------------------------------------ |
 | changesets_changeset_id | KEY changesets_changeset_id (changeset_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| PRIMARY                 | PRIMARY KEY (id) USING BTREE                           |
 
-## Relations
+## ER図
 
 ![er](changes.svg)
 

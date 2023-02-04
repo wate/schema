@@ -1,9 +1,11 @@
 # projects_trackers
 
-## Description
+## 概要
+
+プロジェクト⇔トラッカー
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `projects_trackers` (
@@ -16,27 +18,27 @@ CREATE TABLE `projects_trackers` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | -------- | ------- | ------- |
-| project_id | int(11) | 0 | false |  |  |  |
-| tracker_id | int(11) | 0 | false |  |  |  |
+| 名前         | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル                   | コメント     |
+| ---------- | ------- | ------------ | -------- | ---------- | ----------------------- | -------- |
+| project_id | int(11) | 0            | false    |            | [projects](projects.md) |          |
+| tracker_id | int(11) | 0            | false    |            | [trackers](trackers.md) |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前                       | タイプ    | 定義                                                           |
+| ------------------------ | ------ | ------------------------------------------------------------ |
 | projects_trackers_unique | UNIQUE | UNIQUE KEY projects_trackers_unique (project_id, tracker_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| projects_trackers_project_id | KEY projects_trackers_project_id (project_id) USING BTREE |
-| projects_trackers_unique | UNIQUE KEY projects_trackers_unique (project_id, tracker_id) USING BTREE |
+| 名前                           | 定義                                                                       |
+| ---------------------------- | ------------------------------------------------------------------------ |
+| projects_trackers_project_id | KEY projects_trackers_project_id (project_id) USING BTREE                |
+| projects_trackers_unique     | UNIQUE KEY projects_trackers_unique (project_id, tracker_id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](projects_trackers.svg)
 

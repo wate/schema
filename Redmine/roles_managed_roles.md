@@ -1,9 +1,11 @@
 # roles_managed_roles
 
-## Description
+## 概要
+
+メンバーの管理(管理対象のロール)
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `roles_managed_roles` (
@@ -15,26 +17,26 @@ CREATE TABLE `roles_managed_roles` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | -------- | ------- | ------- |
-| role_id | int(11) |  | false |  |  |  |
-| managed_role_id | int(11) |  | false |  |  |  |
+| 名前              | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル             | コメント               |
+| --------------- | ------- | ------------ | -------- | ---------- | ----------------- | ------------------ |
+| role_id         | int(11) |              | false    |            | [roles](roles.md) | ロールID              |
+| managed_role_id | int(11) |              | false    |            | [roles](roles.md) | 管理対象のロールID         |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前                                                       | タイプ    | 定義                                                                                             |
+| -------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------- |
 | index_roles_managed_roles_on_role_id_and_managed_role_id | UNIQUE | UNIQUE KEY index_roles_managed_roles_on_role_id_and_managed_role_id (role_id, managed_role_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                                                       | 定義                                                                                                         |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | index_roles_managed_roles_on_role_id_and_managed_role_id | UNIQUE KEY index_roles_managed_roles_on_role_id_and_managed_role_id (role_id, managed_role_id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](roles_managed_roles.svg)
 

@@ -1,9 +1,11 @@
 # workflows
 
-## Description
+## 概要
+
+ワークフロー/フィールドの権限
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `workflows` (
@@ -28,39 +30,43 @@ CREATE TABLE `workflows` (
 
 </details>
 
-## Columns
+## ラベル
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| tracker_id | int(11) | 0 | false |  |  |  |  |
-| old_status_id | int(11) | 0 | false |  |  |  |  |
-| new_status_id | int(11) | 0 | false |  |  |  |  |
-| role_id | int(11) | 0 | false |  |  |  |  |
-| assignee | tinyint(1) | 0 | false |  |  |  |  |
-| author | tinyint(1) | 0 | false |  |  |  |  |
-| type | varchar(30) | NULL | true |  |  |  |  |
-| field_name | varchar(30) | NULL | true |  |  |  |  |
-| rule | varchar(30) | NULL | true |  |  |  |  |
+`単一テーブル継承`
 
-## Constraints
+## カラム一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前            | タイプ         | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル                               | コメント                                                                                     |
+| ------------- | ----------- | ------------ | -------- | ---------------- | ---------- | ----------------------------------- | ---------------------------------------------------------------------------------------- |
+| id            | int(11)     |              | false    | auto_increment   |            |                                     |                                                                                          |
+| tracker_id    | int(11)     | 0            | false    |                  |            | [trackers](trackers.md)             |                                                                                          |
+| old_status_id | int(11)     | 0            | false    |                  |            | [issue_statuses](issue_statuses.md) |                                                                                          |
+| new_status_id | int(11)     | 0            | false    |                  |            | [issue_statuses](issue_statuses.md) |                                                                                          |
+| role_id       | int(11)     | 0            | false    |                  |            | [roles](roles.md)                   |                                                                                          |
+| assignee      | tinyint(1)  | 0            | false    |                  |            |                                     |                                                                                          |
+| author        | tinyint(1)  | 0            | false    |                  |            |                                     |                                                                                          |
+| type          | varchar(30) | NULL         | true     |                  |            |                                     | WorkflowTransition:ステータスの遷移<br>WorkflowPermission:フィールドに対する権限<br><br>                    |
+| field_name    | varchar(30) | NULL         | true     |                  |            |                                     |                                                                                          |
+| rule          | varchar(30) | NULL         | true     |                  |            |                                     |                                                                                          |
+
+## 制約一覧
+
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| index_workflows_on_new_status_id | KEY index_workflows_on_new_status_id (new_status_id) USING BTREE |
-| index_workflows_on_old_status_id | KEY index_workflows_on_old_status_id (old_status_id) USING BTREE |
-| index_workflows_on_role_id | KEY index_workflows_on_role_id (role_id) USING BTREE |
-| index_workflows_on_tracker_id | KEY index_workflows_on_tracker_id (tracker_id) USING BTREE |
-| wkfs_role_tracker_old_status | KEY wkfs_role_tracker_old_status (role_id, tracker_id, old_status_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| 名前                               | 定義                                                                                |
+| -------------------------------- | --------------------------------------------------------------------------------- |
+| index_workflows_on_new_status_id | KEY index_workflows_on_new_status_id (new_status_id) USING BTREE                  |
+| index_workflows_on_old_status_id | KEY index_workflows_on_old_status_id (old_status_id) USING BTREE                  |
+| index_workflows_on_role_id       | KEY index_workflows_on_role_id (role_id) USING BTREE                              |
+| index_workflows_on_tracker_id    | KEY index_workflows_on_tracker_id (tracker_id) USING BTREE                        |
+| wkfs_role_tracker_old_status     | KEY wkfs_role_tracker_old_status (role_id, tracker_id, old_status_id) USING BTREE |
+| PRIMARY                          | PRIMARY KEY (id) USING BTREE                                                      |
 
-## Relations
+## ER図
 
 ![er](workflows.svg)
 

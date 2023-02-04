@@ -1,9 +1,9 @@
 # global_note_template_projects
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `global_note_template_projects` (
@@ -14,14 +14,14 @@ CREATE TABLE `global_note_template_projects` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | -------- | ------- | ------- |
-| global_note_template_id | bigint(20) |  | false |  |  |  |
-| project_id | bigint(20) |  | false |  |  |  |
+| 名前                      | タイプ        | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル                                             | コメント     |
+| ----------------------- | ---------- | ------------ | -------- | ---------- | ------------------------------------------------- | -------- |
+| global_note_template_id | bigint(20) |              | false    |            | [global_note_templates](global_note_templates.md) |          |
+| project_id              | bigint(20) |              | false    |            | [projects](projects.md)                           |          |
 
-## Relations
+## ER図
 
 ![er](global_note_template_projects.svg)
 

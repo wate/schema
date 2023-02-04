@@ -1,9 +1,11 @@
 # issue_relations
 
-## Description
+## 概要
+
+関連チケット
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `issue_relations` (
@@ -21,33 +23,33 @@ CREATE TABLE `issue_relations` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| issue_from_id | int(11) |  | false |  |  |  |  |
-| issue_to_id | int(11) |  | false |  |  |  |  |
-| relation_type | varchar(255) | '' | false |  |  |  |  |
-| delay | int(11) | NULL | true |  |  |  |  |
+| 名前            | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル               | コメント                                                                                                                                                                                                                                             |
+| ------------- | ------------ | ------------ | -------- | ---------------- | ---------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| id            | int(11)      |              | false    | auto_increment   |            |                     |                                                                                                                                                                                                                                                  |
+| issue_from_id | int(11)      |              | false    |                  |            | [issues](issues.md) | 関連元チケットID                                                                                                                                                                                                                                        |
+| issue_to_id   | int(11)      |              | false    |                  |            | [issues](issues.md) | 関連先チケットID                                                                                                                                                                                                                                        |
+| relation_type | varchar(255) | ''           | false    |                  |            |                     | relates:関連している<br>duplicates:次のチケットと重複<br>duplicated:次のチケットが重複<br>blocks:ブロック先<br>blocked:ブロック元<br>precedes:次のチケットに先行<br>follows:次のチケットに後続<br>copied_to:コピー先<br>copied_from:コピー元<br>                                                             |
+| delay         | int(11)      | NULL         | true     |                  |            |                     | 遅延日数                                                                                                                                                                                                                                             |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| index_issue_relations_on_issue_from_id_and_issue_to_id | UNIQUE | UNIQUE KEY index_issue_relations_on_issue_from_id_and_issue_to_id (issue_from_id, issue_to_id) |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
+| 名前                                                     | タイプ         | 定義                                                                                             |
+| ------------------------------------------------------ | ----------- | ---------------------------------------------------------------------------------------------- |
+| index_issue_relations_on_issue_from_id_and_issue_to_id | UNIQUE      | UNIQUE KEY index_issue_relations_on_issue_from_id_and_issue_to_id (issue_from_id, issue_to_id) |
+| PRIMARY                                                | PRIMARY KEY | PRIMARY KEY (id)                                                                               |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| index_issue_relations_on_issue_from_id | KEY index_issue_relations_on_issue_from_id (issue_from_id) USING BTREE |
-| index_issue_relations_on_issue_to_id | KEY index_issue_relations_on_issue_to_id (issue_to_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| 名前                                                     | 定義                                                                                                         |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| index_issue_relations_on_issue_from_id                 | KEY index_issue_relations_on_issue_from_id (issue_from_id) USING BTREE                                     |
+| index_issue_relations_on_issue_to_id                   | KEY index_issue_relations_on_issue_to_id (issue_to_id) USING BTREE                                         |
+| PRIMARY                                                | PRIMARY KEY (id) USING BTREE                                                                               |
 | index_issue_relations_on_issue_from_id_and_issue_to_id | UNIQUE KEY index_issue_relations_on_issue_from_id_and_issue_to_id (issue_from_id, issue_to_id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](issue_relations.svg)
 

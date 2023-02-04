@@ -1,9 +1,11 @@
 # roles
 
-## Description
+## 概要
+
+ロール
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `roles` (
@@ -24,35 +26,35 @@ CREATE TABLE `roles` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| name | varchar(255) | '' | false |  |  |  |  |
-| position | int(11) | NULL | true |  |  |  |  |
-| assignable | tinyint(1) | 1 | true |  |  |  |  |
-| builtin | int(11) | 0 | false |  |  |  |  |
-| permissions | text | NULL | true |  |  |  |  |
-| issues_visibility | varchar(30) | 'default' | false |  |  |  |  |
-| users_visibility | varchar(30) | 'all' | false |  |  |  |  |
-| time_entries_visibility | varchar(30) | 'all' | false |  |  |  |  |
-| all_roles_managed | tinyint(1) | 1 | false |  |  |  |  |
-| settings | text | NULL | true |  |  |  |  |
+| 名前                      | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                                                                                                                                                                                                                                                                                         | 親テーブル      | コメント                                             |
+| ----------------------- | ------------ | ------------ | -------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------------------ |
+| id                      | int(11)      |              | false    | auto_increment   | [workflows](workflows.md) [custom_fields_roles](custom_fields_roles.md) [queries_roles](queries_roles.md) [member_roles](member_roles.md) [roles_managed_roles](roles_managed_roles.md) [global_note_visible_roles](global_note_visible_roles.md) [note_visible_roles](note_visible_roles.md) |            |                                                  |
+| name                    | varchar(255) | ''           | false    |                  |                                                                                                                                                                                                                                                                                               |            | 名称                                               |
+| position                | int(11)      | NULL         | true     |                  |                                                                                                                                                                                                                                                                                               |            | 並び順                                              |
+| assignable              | tinyint(1)   | 1            | true     |                  |                                                                                                                                                                                                                                                                                               |            | このロールのユーザーにチケットを割り当て可能                           |
+| builtin                 | int(11)      | 0            | false    |                  |                                                                                                                                                                                                                                                                                               |            | 1:非メンバー<br>2:匿名ユーザー<br>0:それ以外<br>                |
+| permissions             | text         | NULL         | true     |                  |                                                                                                                                                                                                                                                                                               |            | 権限                                               |
+| issues_visibility       | varchar(30)  | 'default'    | false    |                  |                                                                                                                                                                                                                                                                                               |            | 表示できるチケット                                        |
+| users_visibility        | varchar(30)  | 'all'        | false    |                  |                                                                                                                                                                                                                                                                                               |            | 表示できるユーザー                                        |
+| time_entries_visibility | varchar(30)  | 'all'        | false    |                  |                                                                                                                                                                                                                                                                                               |            | 表示できる作業時間                                        |
+| all_roles_managed       | tinyint(1)   | 1            | false    |                  |                                                                                                                                                                                                                                                                                               |            | メンバーの管理(すべてのロール)                                 |
+| settings                | text         | NULL         | true     |                  |                                                                                                                                                                                                                                                                                               |            |                                                  |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前      | 定義                           |
+| ------- | ---------------------------- |
 | PRIMARY | PRIMARY KEY (id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](roles.svg)
 

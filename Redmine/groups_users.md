@@ -1,9 +1,11 @@
 # groups_users
 
-## Description
+## 概要
+
+グループ⇔ユーザー
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `groups_users` (
@@ -15,26 +17,26 @@ CREATE TABLE `groups_users` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | -------- | ------- | ------- |
-| group_id | int(11) |  | false |  |  |  |
-| user_id | int(11) |  | false |  |  |  |
+| 名前       | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル             | コメント     |
+| -------- | ------- | ------------ | -------- | ---------- | ----------------- | -------- |
+| group_id | int(11) |              | false    |            | [users](users.md) |          |
+| user_id  | int(11) |              | false    |            | [users](users.md) |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前               | タイプ    | 定義                                              |
+| ---------------- | ------ | ----------------------------------------------- |
 | groups_users_ids | UNIQUE | UNIQUE KEY groups_users_ids (group_id, user_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前               | 定義                                                          |
+| ---------------- | ----------------------------------------------------------- |
 | groups_users_ids | UNIQUE KEY groups_users_ids (group_id, user_id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](groups_users.svg)
 

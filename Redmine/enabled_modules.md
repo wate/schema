@@ -1,9 +1,11 @@
 # enabled_modules
 
-## Description
+## 概要
+
+モジュールの有効化
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `enabled_modules` (
@@ -17,28 +19,28 @@ CREATE TABLE `enabled_modules` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| project_id | int(11) | NULL | true |  |  |  |  |
-| name | varchar(255) |  | false |  |  |  |  |
+| 名前         | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル                   | コメント         |
+| ---------- | ------------ | ------------ | -------- | ---------------- | ---------- | ----------------------- | ------------ |
+| id         | int(11)      |              | false    | auto_increment   |            |                         |              |
+| project_id | int(11)      | NULL         | true     |                  |            | [projects](projects.md) |              |
+| name       | varchar(255) |              | false    |                  |            |                         | モジュール名       |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                         | 定義                                                      |
+| -------------------------- | ------------------------------------------------------- |
 | enabled_modules_project_id | KEY enabled_modules_project_id (project_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| PRIMARY                    | PRIMARY KEY (id) USING BTREE                            |
 
-## Relations
+## ER図
 
 ![er](enabled_modules.svg)
 

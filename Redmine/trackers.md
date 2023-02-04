@@ -1,9 +1,11 @@
 # trackers
 
-## Description
+## 概要
+
+トラッカー
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `trackers` (
@@ -20,31 +22,31 @@ CREATE TABLE `trackers` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| name | varchar(30) | '' | false |  |  |  |  |
-| description | varchar(255) | NULL | true |  |  |  |  |
-| position | int(11) | NULL | true |  |  |  |  |
-| is_in_roadmap | tinyint(1) | 1 | false |  |  |  |  |
-| fields_bits | int(11) | 0 | true |  |  |  |  |
-| default_status_id | int(11) | NULL | true |  |  |  |  |
+| 名前                | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                                                                                                                                                                                                                                                                                                                       | 親テーブル                               | コメント     |
+| ----------------- | ------------ | ------------ | -------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | -------- |
+| id                | int(11)      |              | false    | auto_increment   | [workflows](workflows.md) [custom_fields_trackers](custom_fields_trackers.md) [projects_trackers](projects_trackers.md) [issues](issues.md) [global_issue_templates](global_issue_templates.md) [global_note_templates](global_note_templates.md) [issue_templates](issue_templates.md) [note_templates](note_templates.md) |                                     |          |
+| name              | varchar(30)  | ''           | false    |                  |                                                                                                                                                                                                                                                                                                                             |                                     |          |
+| description       | varchar(255) | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                             |                                     |          |
+| position          | int(11)      | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                             |                                     |          |
+| is_in_roadmap     | tinyint(1)   | 1            | false    |                  |                                                                                                                                                                                                                                                                                                                             |                                     |          |
+| fields_bits       | int(11)      | 0            | true     |                  |                                                                                                                                                                                                                                                                                                                             |                                     |          |
+| default_status_id | int(11)      | NULL         | true     |                  |                                                                                                                                                                                                                                                                                                                             | [issue_statuses](issue_statuses.md) |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前      | 定義                           |
+| ------- | ---------------------------- |
 | PRIMARY | PRIMARY KEY (id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](trackers.svg)
 

@@ -1,9 +1,11 @@
 # time_entries
 
-## Description
+## 概要
+
+時間管理
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `time_entries` (
@@ -32,43 +34,47 @@ CREATE TABLE `time_entries` (
 
 </details>
 
-## Columns
+## ラベル
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| project_id | int(11) |  | false |  |  |  |  |
-| author_id | int(11) | NULL | true |  |  |  |  |
-| user_id | int(11) |  | false |  |  |  |  |
-| issue_id | int(11) | NULL | true |  |  |  |  |
-| hours | float |  | false |  |  |  |  |
-| comments | varchar(1024) | NULL | true |  |  |  |  |
-| activity_id | int(11) |  | false |  |  |  |  |
-| spent_on | date |  | false |  |  |  |  |
-| tyear | int(11) |  | false |  |  |  |  |
-| tmonth | int(11) |  | false |  |  |  |  |
-| tweek | int(11) |  | false |  |  |  |  |
-| created_on | datetime |  | false |  |  |  |  |
-| updated_on | datetime |  | false |  |  |  |  |
+`ポリモーフィック関連`
 
-## Constraints
+## カラム一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前          | タイプ           | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル                   | コメント     |
+| ----------- | ------------- | ------------ | -------- | ---------------- | ---------- | ----------------------- | -------- |
+| id          | int(11)       |              | false    | auto_increment   |            |                         |          |
+| project_id  | int(11)       |              | false    |                  |            | [projects](projects.md) |          |
+| author_id   | int(11)       | NULL         | true     |                  |            | [users](users.md)       |          |
+| user_id     | int(11)       |              | false    |                  |            | [users](users.md)       |          |
+| issue_id    | int(11)       | NULL         | true     |                  |            | [issues](issues.md)     |          |
+| hours       | float         |              | false    |                  |            |                         |          |
+| comments    | varchar(1024) | NULL         | true     |                  |            |                         |          |
+| activity_id | int(11)       |              | false    |                  |            |                         |          |
+| spent_on    | date          |              | false    |                  |            |                         |          |
+| tyear       | int(11)       |              | false    |                  |            |                         |          |
+| tmonth      | int(11)       |              | false    |                  |            |                         |          |
+| tweek       | int(11)       |              | false    |                  |            |                         |          |
+| created_on  | datetime      |              | false    |                  |            |                         |          |
+| updated_on  | datetime      |              | false    |                  |            |                         |          |
+
+## 制約一覧
+
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                                | 定義                                                              |
+| --------------------------------- | --------------------------------------------------------------- |
 | index_time_entries_on_activity_id | KEY index_time_entries_on_activity_id (activity_id) USING BTREE |
-| index_time_entries_on_created_on | KEY index_time_entries_on_created_on (created_on) USING BTREE |
-| index_time_entries_on_user_id | KEY index_time_entries_on_user_id (user_id) USING BTREE |
-| time_entries_issue_id | KEY time_entries_issue_id (issue_id) USING BTREE |
-| time_entries_project_id | KEY time_entries_project_id (project_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| index_time_entries_on_created_on  | KEY index_time_entries_on_created_on (created_on) USING BTREE   |
+| index_time_entries_on_user_id     | KEY index_time_entries_on_user_id (user_id) USING BTREE         |
+| time_entries_issue_id             | KEY time_entries_issue_id (issue_id) USING BTREE                |
+| time_entries_project_id           | KEY time_entries_project_id (project_id) USING BTREE            |
+| PRIMARY                           | PRIMARY KEY (id) USING BTREE                                    |
 
-## Relations
+## ER図
 
 ![er](time_entries.svg)
 

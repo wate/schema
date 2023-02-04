@@ -1,9 +1,11 @@
 # settings
 
-## Description
+## 概要
+
+設定
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `settings` (
@@ -18,29 +20,29 @@ CREATE TABLE `settings` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| name | varchar(255) | '' | false |  |  |  |  |
-| value | text | NULL | true |  |  |  |  |
-| updated_on | timestamp | NULL | true |  |  |  |  |
+| 名前         | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
+| ---------- | ------------ | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
+| id         | int(11)      |              | false    | auto_increment   |            |            |          |
+| name       | varchar(255) | ''           | false    |                  |            |            |          |
+| value      | text         | NULL         | true     |                  |            |            |          |
+| updated_on | timestamp    | NULL         | true     |                  |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                     | 定義                                            |
+| ---------------------- | --------------------------------------------- |
 | index_settings_on_name | KEY index_settings_on_name (name) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| PRIMARY                | PRIMARY KEY (id) USING BTREE                  |
 
-## Relations
+## ER図
 
 ![er](settings.svg)
 

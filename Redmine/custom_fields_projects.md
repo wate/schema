@@ -1,9 +1,11 @@
 # custom_fields_projects
 
-## Description
+## 概要
+
+カスタムフィールド⇔プロジェクト
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `custom_fields_projects` (
@@ -15,26 +17,26 @@ CREATE TABLE `custom_fields_projects` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | -------- | ------- | ------- |
-| custom_field_id | int(11) | 0 | false |  |  |  |
-| project_id | int(11) | 0 | false |  |  |  |
+| 名前              | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル                             | コメント     |
+| --------------- | ------- | ------------ | -------- | ---------- | --------------------------------- | -------- |
+| custom_field_id | int(11) | 0            | false    |            | [custom_fields](custom_fields.md) |          |
+| project_id      | int(11) | 0            | false    |            | [projects](projects.md)           |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前                                                             | タイプ    | 定義                                                                                                      |
+| -------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------- |
 | index_custom_fields_projects_on_custom_field_id_and_project_id | UNIQUE | UNIQUE KEY index_custom_fields_projects_on_custom_field_id_and_project_id (custom_field_id, project_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                                                             | 定義                                                                                                                  |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | index_custom_fields_projects_on_custom_field_id_and_project_id | UNIQUE KEY index_custom_fields_projects_on_custom_field_id_and_project_id (custom_field_id, project_id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](custom_fields_projects.svg)
 

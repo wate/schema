@@ -1,9 +1,9 @@
 # global_issue_templates_projects
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `global_issue_templates_projects` (
@@ -15,26 +15,26 @@ CREATE TABLE `global_issue_templates_projects` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | -------- | ------- | ------- |
-| project_id | int(11) | NULL | true |  |  |  |
-| global_issue_template_id | int(11) | NULL | true |  |  |  |
+| 名前                       | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル                                               | コメント     |
+| ------------------------ | ------- | ------------ | -------- | ---------- | --------------------------------------------------- | -------- |
+| project_id               | int(11) | NULL         | true     |            | [projects](projects.md)                             |          |
+| global_issue_template_id | int(11) | NULL         | true     |            | [global_issue_templates](global_issue_templates.md) |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前                              | タイプ    | 定義                                                                                |
+| ------------------------------- | ------ | --------------------------------------------------------------------------------- |
 | projects_global_issue_templates | UNIQUE | UNIQUE KEY projects_global_issue_templates (project_id, global_issue_template_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                              | 定義                                                                                            |
+| ------------------------------- | --------------------------------------------------------------------------------------------- |
 | projects_global_issue_templates | UNIQUE KEY projects_global_issue_templates (project_id, global_issue_template_id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](global_issue_templates_projects.svg)
 

@@ -1,9 +1,11 @@
 # issue_statuses
 
-## Description
+## 概要
+
+ステータス
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `issue_statuses` (
@@ -20,31 +22,31 @@ CREATE TABLE `issue_statuses` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| name | varchar(30) | '' | false |  |  |  |  |
-| is_closed | tinyint(1) | 0 | false |  |  |  |  |
-| position | int(11) | NULL | true |  |  |  |  |
-| default_done_ratio | int(11) | NULL | true |  |  |  |  |
+| 名前                 | タイプ         | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                                                                 | 親テーブル      | コメント     |
+| ------------------ | ----------- | ------------ | -------- | ---------------- | --------------------------------------------------------------------- | ---------- | -------- |
+| id                 | int(11)     |              | false    | auto_increment   | [trackers](trackers.md) [workflows](workflows.md) [issues](issues.md) |            |          |
+| name               | varchar(30) | ''           | false    |                  |                                                                       |            |          |
+| is_closed          | tinyint(1)  | 0            | false    |                  |                                                                       |            |          |
+| position           | int(11)     | NULL         | true     |                  |                                                                       |            |          |
+| default_done_ratio | int(11)     | NULL         | true     |                  |                                                                       |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                                | 定義                                                            |
+| --------------------------------- | ------------------------------------------------------------- |
 | index_issue_statuses_on_is_closed | KEY index_issue_statuses_on_is_closed (is_closed) USING BTREE |
-| index_issue_statuses_on_position | KEY index_issue_statuses_on_position (position) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| index_issue_statuses_on_position  | KEY index_issue_statuses_on_position (position) USING BTREE   |
+| PRIMARY                           | PRIMARY KEY (id) USING BTREE                                  |
 
-## Relations
+## ER図
 
 ![er](issue_statuses.svg)
 

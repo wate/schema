@@ -1,9 +1,11 @@
 # repositories
 
-## Description
+## 概要
+
+リポジトリ
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `repositories` (
@@ -27,38 +29,38 @@ CREATE TABLE `repositories` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| project_id | int(11) | 0 | false |  |  |  |  |
-| url | varchar(255) | '' | false |  |  |  |  |
-| login | varchar(60) | '' | true |  |  |  |  |
-| password | varchar(255) | '' | true |  |  |  |  |
-| root_url | varchar(255) | '' | true |  |  |  |  |
-| type | varchar(255) | NULL | true |  |  |  |  |
-| path_encoding | varchar(64) | NULL | true |  |  |  |  |
-| log_encoding | varchar(64) | NULL | true |  |  |  |  |
-| extra_info | longtext | NULL | true |  |  |  |  |
-| identifier | varchar(255) | NULL | true |  |  |  |  |
-| is_default | tinyint(1) | 0 | true |  |  |  |  |
-| created_on | timestamp | NULL | true |  |  |  |  |
+| 名前            | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                       | 親テーブル                   | コメント     |
+| ------------- | ------------ | ------------ | -------- | ---------------- | --------------------------- | ----------------------- | -------- |
+| id            | int(11)      |              | false    | auto_increment   | [changesets](changesets.md) |                         |          |
+| project_id    | int(11)      | 0            | false    |                  |                             | [projects](projects.md) |          |
+| url           | varchar(255) | ''           | false    |                  |                             |                         |          |
+| login         | varchar(60)  | ''           | true     |                  |                             |                         |          |
+| password      | varchar(255) | ''           | true     |                  |                             |                         |          |
+| root_url      | varchar(255) | ''           | true     |                  |                             |                         |          |
+| type          | varchar(255) | NULL         | true     |                  |                             |                         |          |
+| path_encoding | varchar(64)  | NULL         | true     |                  |                             |                         |          |
+| log_encoding  | varchar(64)  | NULL         | true     |                  |                             |                         |          |
+| extra_info    | longtext     | NULL         | true     |                  |                             |                         |          |
+| identifier    | varchar(255) | NULL         | true     |                  |                             |                         |          |
+| is_default    | tinyint(1)   | 0            | true     |                  |                             |                         |          |
+| created_on    | timestamp    | NULL         | true     |                  |                             |                         |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                               | 定義                                                            |
+| -------------------------------- | ------------------------------------------------------------- |
 | index_repositories_on_project_id | KEY index_repositories_on_project_id (project_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| PRIMARY                          | PRIMARY KEY (id) USING BTREE                                  |
 
-## Relations
+## ER図
 
 ![er](repositories.svg)
 

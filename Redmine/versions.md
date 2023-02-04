@@ -1,9 +1,11 @@
 # versions
 
-## Description
+## 概要
+
+バージョン
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `versions` (
@@ -25,36 +27,36 @@ CREATE TABLE `versions` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| project_id | int(11) | 0 | false |  |  |  |  |
-| name | varchar(255) | '' | false |  |  |  |  |
-| description | varchar(255) | '' | true |  |  |  |  |
-| effective_date | date | NULL | true |  |  |  |  |
-| created_on | timestamp | NULL | true |  |  |  |  |
-| updated_on | timestamp | NULL | true |  |  |  |  |
-| wiki_page_title | varchar(255) | NULL | true |  |  |  |  |
-| status | varchar(255) | 'open' | true |  |  |  |  |
-| sharing | varchar(255) | 'none' | false |  |  |  |  |
+| 名前              | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                   | 親テーブル                   | コメント     |
+| --------------- | ------------ | ------------ | -------- | ---------------- | ----------------------- | ----------------------- | -------- |
+| id              | int(11)      |              | false    | auto_increment   | [projects](projects.md) |                         |          |
+| project_id      | int(11)      | 0            | false    |                  |                         | [projects](projects.md) |          |
+| name            | varchar(255) | ''           | false    |                  |                         |                         |          |
+| description     | varchar(255) | ''           | true     |                  |                         |                         |          |
+| effective_date  | date         | NULL         | true     |                  |                         |                         |          |
+| created_on      | timestamp    | NULL         | true     |                  |                         |                         |          |
+| updated_on      | timestamp    | NULL         | true     |                  |                         |                         |          |
+| wiki_page_title | varchar(255) | NULL         | true     |                  |                         |                         |          |
+| status          | varchar(255) | 'open'       | true     |                  |                         |                         |          |
+| sharing         | varchar(255) | 'none'       | false    |                  |                         |                         |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                        | 定義                                                  |
+| ------------------------- | --------------------------------------------------- |
 | index_versions_on_sharing | KEY index_versions_on_sharing (sharing) USING BTREE |
-| versions_project_id | KEY versions_project_id (project_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| versions_project_id       | KEY versions_project_id (project_id) USING BTREE    |
+| PRIMARY                   | PRIMARY KEY (id) USING BTREE                        |
 
-## Relations
+## ER図
 
 ![er](versions.svg)
 

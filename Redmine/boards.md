@@ -1,9 +1,11 @@
 # boards
 
-## Description
+## 概要
+
+フォーラム
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `boards` (
@@ -24,35 +26,35 @@ CREATE TABLE `boards` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| project_id | int(11) |  | false |  |  |  |  |
-| name | varchar(255) | '' | false |  |  |  |  |
-| description | varchar(255) | NULL | true |  |  |  |  |
-| position | int(11) | NULL | true |  |  |  |  |
-| topics_count | int(11) | 0 | false |  |  |  |  |
-| messages_count | int(11) | 0 | false |  |  |  |  |
-| last_message_id | int(11) | NULL | true |  |  |  |  |
-| parent_id | int(11) | NULL | true |  |  |  |  |
+| 名前              | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                   | 親テーブル                   | コメント     |
+| --------------- | ------------ | ------------ | -------- | ---------------- | ----------------------- | ----------------------- | -------- |
+| id              | int(11)      |              | false    | auto_increment   | [messages](messages.md) |                         |          |
+| project_id      | int(11)      |              | false    |                  |                         | [projects](projects.md) |          |
+| name            | varchar(255) | ''           | false    |                  |                         |                         |          |
+| description     | varchar(255) | NULL         | true     |                  |                         |                         |          |
+| position        | int(11)      | NULL         | true     |                  |                         |                         |          |
+| topics_count    | int(11)      | 0            | false    |                  |                         |                         |          |
+| messages_count  | int(11)      | 0            | false    |                  |                         |                         |          |
+| last_message_id | int(11)      | NULL         | true     |                  |                         |                         |          |
+| parent_id       | int(11)      | NULL         | true     |                  |                         |                         |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| boards_project_id | KEY boards_project_id (project_id) USING BTREE |
+| 名前                              | 定義                                                                |
+| ------------------------------- | ----------------------------------------------------------------- |
+| boards_project_id               | KEY boards_project_id (project_id) USING BTREE                    |
 | index_boards_on_last_message_id | KEY index_boards_on_last_message_id (last_message_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| PRIMARY                         | PRIMARY KEY (id) USING BTREE                                      |
 
-## Relations
+## ER図
 
 ![er](boards.svg)
 

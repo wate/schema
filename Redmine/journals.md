@@ -1,9 +1,11 @@
 # journals
 
-## Description
+## 概要
+
+ジャーナル
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `journals` (
@@ -24,35 +26,39 @@ CREATE TABLE `journals` (
 
 </details>
 
-## Columns
+## ラベル
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| journalized_id | int(11) | 0 | false |  |  |  |  |
-| journalized_type | varchar(30) | '' | false |  |  |  |  |
-| user_id | int(11) | 0 | false |  |  |  |  |
-| notes | longtext | NULL | true |  |  |  |  |
-| created_on | datetime |  | false |  |  |  |  |
-| private_notes | tinyint(1) | 0 | false |  |  |  |  |
+`ポリモーフィック関連`
 
-## Constraints
+## カラム一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前               | タイプ         | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                                 | 親テーブル             | コメント                                           |
+| ---------------- | ----------- | ------------ | -------- | ---------------- | ------------------------------------- | ----------------- | ---------------------------------------------- |
+| id               | int(11)     |              | false    | auto_increment   | [journal_details](journal_details.md) |                   |                                                |
+| journalized_id   | int(11)     | 0            | false    |                  |                                       |                   |                                                |
+| journalized_type | varchar(30) | ''           | false    |                  |                                       |                   | Issue:チケット<br>Changeset:チェンジセット<br>            |
+| user_id          | int(11)     | 0            | false    |                  |                                       | [users](users.md) |                                                |
+| notes            | longtext    | NULL         | true     |                  |                                       |                   |                                                |
+| created_on       | datetime    |              | false    |                  |                                       |                   |                                                |
+| private_notes    | tinyint(1)  | 0            | false    |                  |                                       |                   |                                                |
+
+## 制約一覧
+
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| index_journals_on_created_on | KEY index_journals_on_created_on (created_on) USING BTREE |
-| index_journals_on_journalized_id | KEY index_journals_on_journalized_id (journalized_id) USING BTREE |
-| index_journals_on_user_id | KEY index_journals_on_user_id (user_id) USING BTREE |
-| journals_journalized_id | KEY journals_journalized_id (journalized_id, journalized_type) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| 名前                               | 定義                                                                         |
+| -------------------------------- | -------------------------------------------------------------------------- |
+| index_journals_on_created_on     | KEY index_journals_on_created_on (created_on) USING BTREE                  |
+| index_journals_on_journalized_id | KEY index_journals_on_journalized_id (journalized_id) USING BTREE          |
+| index_journals_on_user_id        | KEY index_journals_on_user_id (user_id) USING BTREE                        |
+| journals_journalized_id          | KEY journals_journalized_id (journalized_id, journalized_type) USING BTREE |
+| PRIMARY                          | PRIMARY KEY (id) USING BTREE                                               |
 
-## Relations
+## ER図
 
 ![er](journals.svg)
 

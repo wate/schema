@@ -1,9 +1,11 @@
 # watchers
 
-## Description
+## 概要
+
+ウォッチャー
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `watchers` (
@@ -20,31 +22,35 @@ CREATE TABLE `watchers` (
 
 </details>
 
-## Columns
+## ラベル
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| watchable_type | varchar(255) | '' | false |  |  |  |  |
-| watchable_id | int(11) | 0 | false |  |  |  |  |
-| user_id | int(11) | NULL | true |  |  |  |  |
+`ポリモーフィック関連`
 
-## Constraints
+## カラム一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前             | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル             | コメント                                                                                                                                                       |
+| -------------- | ------------ | ------------ | -------- | ---------------- | ---------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id             | int(11)      |              | false    | auto_increment   |            |                   |                                                                                                                                                            |
+| watchable_type | varchar(255) | ''           | false    |                  |            |                   | Issue: チケット<br>WikiPage: Wikiページ<br>EnabledModule: ニュース(全体)<br>News: ニュース(単一)<br>Board:フォーラム(全体)<br>Message:フォーラム(単一)<br>                                  |
+| watchable_id   | int(11)      | 0            | false    |                  |            |                   |                                                                                                                                                            |
+| user_id        | int(11)      | NULL         | true     |                  |            | [users](users.md) |                                                                                                                                                            |
+
+## 制約一覧
+
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| index_watchers_on_user_id | KEY index_watchers_on_user_id (user_id) USING BTREE |
+| 名前                                                | 定義                                                                                               |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| index_watchers_on_user_id                         | KEY index_watchers_on_user_id (user_id) USING BTREE                                              |
 | index_watchers_on_watchable_id_and_watchable_type | KEY index_watchers_on_watchable_id_and_watchable_type (watchable_id, watchable_type) USING BTREE |
-| watchers_user_id_type | KEY watchers_user_id_type (user_id, watchable_type) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| watchers_user_id_type                             | KEY watchers_user_id_type (user_id, watchable_type) USING BTREE                                  |
+| PRIMARY                                           | PRIMARY KEY (id) USING BTREE                                                                     |
 
-## Relations
+## ER図
 
 ![er](watchers.svg)
 

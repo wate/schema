@@ -1,9 +1,11 @@
 # imports
 
-## Description
+## 概要
+
+インポート
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `imports` (
@@ -22,33 +24,33 @@ CREATE TABLE `imports` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| type | varchar(255) | NULL | true |  |  |  |  |
-| user_id | int(11) |  | false |  |  |  |  |
-| filename | varchar(255) | NULL | true |  |  |  |  |
-| settings | text | NULL | true |  |  |  |  |
-| total_items | int(11) | NULL | true |  |  |  |  |
-| finished | tinyint(1) | 0 | false |  |  |  |  |
-| created_at | datetime |  | false |  |  |  |  |
-| updated_at | datetime |  | false |  |  |  |  |
+| 名前          | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                           | 親テーブル             | コメント     |
+| ----------- | ------------ | ------------ | -------- | ---------------- | ------------------------------- | ----------------- | -------- |
+| id          | int(11)      |              | false    | auto_increment   | [import_items](import_items.md) |                   |          |
+| type        | varchar(255) | NULL         | true     |                  |                                 |                   |          |
+| user_id     | int(11)      |              | false    |                  |                                 | [users](users.md) |          |
+| filename    | varchar(255) | NULL         | true     |                  |                                 |                   |          |
+| settings    | text         | NULL         | true     |                  |                                 |                   |          |
+| total_items | int(11)      | NULL         | true     |                  |                                 |                   |          |
+| finished    | tinyint(1)   | 0            | false    |                  |                                 |                   |          |
+| created_at  | datetime     |              | false    |                  |                                 |                   |          |
+| updated_at  | datetime     |              | false    |                  |                                 |                   |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前      | 定義                           |
+| ------- | ---------------------------- |
 | PRIMARY | PRIMARY KEY (id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](imports.svg)
 

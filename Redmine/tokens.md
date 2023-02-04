@@ -1,9 +1,11 @@
 # tokens
 
-## Description
+## 概要
+
+各種トークン
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `tokens` (
@@ -21,33 +23,33 @@ CREATE TABLE `tokens` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| user_id | int(11) | 0 | false |  |  |  |  |
-| action | varchar(30) | '' | false |  |  |  |  |
-| value | varchar(40) | '' | false |  |  |  |  |
-| created_on | datetime |  | false |  |  |  |  |
-| updated_on | timestamp | NULL | true |  |  |  |  |
+| 名前         | タイプ         | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル             | コメント                                                                    |
+| ---------- | ----------- | ------------ | -------- | ---------------- | ---------- | ----------------- | ----------------------------------------------------------------------- |
+| id         | int(11)     |              | false    | auto_increment   |            |                   |                                                                         |
+| user_id    | int(11)     | 0            | false    |                  |            | [users](users.md) |                                                                         |
+| action     | varchar(30) | ''           | false    |                  |            |                   | session:セッション<br>api:APIアクセスキー<br>feeds:Atomアクセスキー<br>                  |
+| value      | varchar(40) | ''           | false    |                  |            |                   | トークン                                                                    |
+| created_on | datetime    |              | false    |                  |            |                   |                                                                         |
+| updated_on | timestamp   | NULL         | true     |                  |            |                   |                                                                         |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
-| tokens_value | UNIQUE | UNIQUE KEY tokens_value (value) |
+| 名前           | タイプ         | 定義                              |
+| ------------ | ----------- | ------------------------------- |
+| PRIMARY      | PRIMARY KEY | PRIMARY KEY (id)                |
+| tokens_value | UNIQUE      | UNIQUE KEY tokens_value (value) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                      | 定義                                                |
+| ----------------------- | ------------------------------------------------- |
 | index_tokens_on_user_id | KEY index_tokens_on_user_id (user_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
-| tokens_value | UNIQUE KEY tokens_value (value) USING BTREE |
+| PRIMARY                 | PRIMARY KEY (id) USING BTREE                      |
+| tokens_value            | UNIQUE KEY tokens_value (value) USING BTREE       |
 
-## Relations
+## ER図
 
 ![er](tokens.svg)
 

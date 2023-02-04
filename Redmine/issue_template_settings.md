@@ -1,9 +1,9 @@
 # issue_template_settings
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `issue_template_settings` (
@@ -19,30 +19,30 @@ CREATE TABLE `issue_template_settings` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| project_id | int(11) | NULL | true |  |  |  |  |
-| help_message | text | NULL | true |  |  |  |  |
-| enabled | tinyint(1) | NULL | true |  |  |  |  |
-| should_replaced | tinyint(1) | 0 | true |  |  |  |  |
-| inherit_templates | tinyint(1) | 0 | false |  |  |  |  |
+| 名前                | タイプ        | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル                   | コメント     |
+| ----------------- | ---------- | ------------ | -------- | ---------------- | ---------- | ----------------------- | -------- |
+| id                | int(11)    |              | false    | auto_increment   |            |                         |          |
+| project_id        | int(11)    | NULL         | true     |                  |            | [projects](projects.md) |          |
+| help_message      | text       | NULL         | true     |                  |            |                         |          |
+| enabled           | tinyint(1) | NULL         | true     |                  |            |                         |          |
+| should_replaced   | tinyint(1) | 0            | true     |                  |            |                         |          |
+| inherit_templates | tinyint(1) | 0            | false    |                  |            |                         |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前      | 定義                           |
+| ------- | ---------------------------- |
 | PRIMARY | PRIMARY KEY (id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](issue_template_settings.svg)
 

@@ -1,9 +1,11 @@
 # changesets_issues
 
-## Description
+## 概要
+
+チェンジセット⇔チケット
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `changesets_issues` (
@@ -16,27 +18,27 @@ CREATE TABLE `changesets_issues` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | -------- | ------- | ------- |
-| changeset_id | int(11) |  | false |  |  |  |
-| issue_id | int(11) |  | false |  |  |  |
+| 名前           | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル                       | コメント     |
+| ------------ | ------- | ------------ | -------- | ---------- | --------------------------- | -------- |
+| changeset_id | int(11) |              | false    |            | [changesets](changesets.md) |          |
+| issue_id     | int(11) |              | false    |            | [issues](issues.md)         |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前                    | タイプ    | 定義                                                        |
+| --------------------- | ------ | --------------------------------------------------------- |
 | changesets_issues_ids | UNIQUE | UNIQUE KEY changesets_issues_ids (changeset_id, issue_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| index_changesets_issues_on_issue_id | KEY index_changesets_issues_on_issue_id (issue_id) USING BTREE |
-| changesets_issues_ids | UNIQUE KEY changesets_issues_ids (changeset_id, issue_id) USING BTREE |
+| 名前                                  | 定義                                                                    |
+| ----------------------------------- | --------------------------------------------------------------------- |
+| index_changesets_issues_on_issue_id | KEY index_changesets_issues_on_issue_id (issue_id) USING BTREE        |
+| changesets_issues_ids               | UNIQUE KEY changesets_issues_ids (changeset_id, issue_id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](changesets_issues.svg)
 

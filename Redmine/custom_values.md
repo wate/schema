@@ -1,9 +1,11 @@
 # custom_values
 
-## Description
+## 概要
+
+カスタムフィールドの値
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `custom_values` (
@@ -20,31 +22,35 @@ CREATE TABLE `custom_values` (
 
 </details>
 
-## Columns
+## ラベル
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| customized_type | varchar(30) | '' | false |  |  |  |  |
-| customized_id | int(11) | 0 | false |  |  |  |  |
-| custom_field_id | int(11) | 0 | false |  |  |  |  |
-| value | longtext | NULL | true |  |  |  |  |
+`ポリモーフィック関連`
 
-## Constraints
+## カラム一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前              | タイプ         | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル                             | コメント     |
+| --------------- | ----------- | ------------ | -------- | ---------------- | ---------- | --------------------------------- | -------- |
+| id              | int(11)     |              | false    | auto_increment   |            |                                   |          |
+| customized_type | varchar(30) | ''           | false    |                  |            |                                   |          |
+| customized_id   | int(11)     | 0            | false    |                  |            |                                   |          |
+| custom_field_id | int(11)     | 0            | false    |                  |            | [custom_fields](custom_fields.md) |          |
+| value           | longtext    | NULL         | true     |                  |            |                                   |          |
+
+## 制約一覧
+
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| custom_values_customized | KEY custom_values_customized (customized_type, customized_id) USING BTREE |
-| index_custom_values_on_custom_field_id | KEY index_custom_values_on_custom_field_id (custom_field_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| 名前                                     | 定義                                                                        |
+| -------------------------------------- | ------------------------------------------------------------------------- |
+| custom_values_customized               | KEY custom_values_customized (customized_type, customized_id) USING BTREE |
+| index_custom_values_on_custom_field_id | KEY index_custom_values_on_custom_field_id (custom_field_id) USING BTREE  |
+| PRIMARY                                | PRIMARY KEY (id) USING BTREE                                              |
 
-## Relations
+## ER図
 
 ![er](custom_values.svg)
 

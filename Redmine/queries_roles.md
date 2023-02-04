@@ -1,9 +1,11 @@
 # queries_roles
 
-## Description
+## 概要
+
+カスタムクエリ⇔ロール
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `queries_roles` (
@@ -15,26 +17,26 @@ CREATE TABLE `queries_roles` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | -------- | ------- | ------- |
-| query_id | int(11) |  | false |  |  |  |
-| role_id | int(11) |  | false |  |  |  |
+| 名前       | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル                 | コメント     |
+| -------- | ------- | ------------ | -------- | ---------- | --------------------- | -------- |
+| query_id | int(11) |              | false    |            | [queries](queries.md) |          |
+| role_id  | int(11) |              | false    |            | [roles](roles.md)     |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前                | タイプ    | 定義                                               |
+| ----------------- | ------ | ------------------------------------------------ |
 | queries_roles_ids | UNIQUE | UNIQUE KEY queries_roles_ids (query_id, role_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                | 定義                                                           |
+| ----------------- | ------------------------------------------------------------ |
 | queries_roles_ids | UNIQUE KEY queries_roles_ids (query_id, role_id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](queries_roles.svg)
 

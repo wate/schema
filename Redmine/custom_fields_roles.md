@@ -1,9 +1,11 @@
 # custom_fields_roles
 
-## Description
+## 概要
+
+カスタムフィールド⇔ロール
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `custom_fields_roles` (
@@ -15,26 +17,26 @@ CREATE TABLE `custom_fields_roles` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | -------- | ------- | ------- |
-| custom_field_id | int(11) |  | false |  |  |  |
-| role_id | int(11) |  | false |  |  |  |
+| 名前              | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル                             | コメント     |
+| --------------- | ------- | ------------ | -------- | ---------- | --------------------------------- | -------- |
+| custom_field_id | int(11) |              | false    |            | [custom_fields](custom_fields.md) |          |
+| role_id         | int(11) |              | false    |            | [roles](roles.md)                 |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前                      | タイプ    | 定義                                                            |
+| ----------------------- | ------ | ------------------------------------------------------------- |
 | custom_fields_roles_ids | UNIQUE | UNIQUE KEY custom_fields_roles_ids (custom_field_id, role_id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                      | 定義                                                                        |
+| ----------------------- | ------------------------------------------------------------------------- |
 | custom_fields_roles_ids | UNIQUE KEY custom_fields_roles_ids (custom_field_id, role_id) USING BTREE |
 
-## Relations
+## ER図
 
 ![er](custom_fields_roles.svg)
 

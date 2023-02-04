@@ -1,9 +1,11 @@
 # comments
 
-## Description
+## 概要
+
+コメント
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `comments` (
@@ -22,33 +24,37 @@ CREATE TABLE `comments` (
 
 </details>
 
-## Columns
+## ラベル
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| commented_type | varchar(30) | '' | false |  |  |  |  |
-| commented_id | int(11) | 0 | false |  |  |  |  |
-| author_id | int(11) | 0 | false |  |  |  |  |
-| content | text | NULL | true |  |  |  |  |
-| created_on | datetime |  | false |  |  |  |  |
-| updated_on | datetime |  | false |  |  |  |  |
+`ポリモーフィック関連`
 
-## Constraints
+## カラム一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前             | タイプ         | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル             | コメント     |
+| -------------- | ----------- | ------------ | -------- | ---------------- | ---------- | ----------------- | -------- |
+| id             | int(11)     |              | false    | auto_increment   |            |                   |          |
+| commented_type | varchar(30) | ''           | false    |                  |            |                   |          |
+| commented_id   | int(11)     | 0            | false    |                  |            |                   |          |
+| author_id      | int(11)     | 0            | false    |                  |            | [users](users.md) |          |
+| content        | text        | NULL         | true     |                  |            |                   |          |
+| created_on     | datetime    |              | false    |                  |            |                   |          |
+| updated_on     | datetime    |              | false    |                  |            |                   |          |
+
+## 制約一覧
+
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| index_comments_on_author_id | KEY index_comments_on_author_id (author_id) USING BTREE |
+| 名前                                                | 定義                                                                                               |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| index_comments_on_author_id                       | KEY index_comments_on_author_id (author_id) USING BTREE                                          |
 | index_comments_on_commented_id_and_commented_type | KEY index_comments_on_commented_id_and_commented_type (commented_id, commented_type) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| PRIMARY                                           | PRIMARY KEY (id) USING BTREE                                                                     |
 
-## Relations
+## ER図
 
 ![er](comments.svg)
 

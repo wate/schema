@@ -1,9 +1,11 @@
 # issue_categories
 
-## Description
+## 概要
+
+カテゴリー
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `issue_categories` (
@@ -19,30 +21,30 @@ CREATE TABLE `issue_categories` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | int(11) |  | false | auto_increment |  |  |  |
-| project_id | int(11) | 0 | false |  |  |  |  |
-| name | varchar(60) | '' | false |  |  |  |  |
-| assigned_to_id | int(11) | NULL | true |  |  |  |  |
+| 名前             | タイプ         | デフォルト値       | NULL許可   | Extra Definition | 子テーブル               | 親テーブル                   | コメント     |
+| -------------- | ----------- | ------------ | -------- | ---------------- | ------------------- | ----------------------- | -------- |
+| id             | int(11)     |              | false    | auto_increment   | [issues](issues.md) |                         |          |
+| project_id     | int(11)     | 0            | false    |                  |                     | [projects](projects.md) |          |
+| name           | varchar(60) | ''           | false    |                  |                     |                         |          |
+| assigned_to_id | int(11)     | NULL         | true     |                  |                     | [users](users.md)       |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
+| 名前                                       | 定義                                                                        |
+| ---------------------------------------- | ------------------------------------------------------------------------- |
 | index_issue_categories_on_assigned_to_id | KEY index_issue_categories_on_assigned_to_id (assigned_to_id) USING BTREE |
-| issue_categories_project_id | KEY issue_categories_project_id (project_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| issue_categories_project_id              | KEY issue_categories_project_id (project_id) USING BTREE                  |
+| PRIMARY                                  | PRIMARY KEY (id) USING BTREE                                              |
 
-## Relations
+## ER図
 
 ![er](issue_categories.svg)
 

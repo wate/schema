@@ -1,9 +1,9 @@
 # global_note_templates
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `global_note_templates` (
@@ -27,38 +27,38 @@ CREATE TABLE `global_note_templates` (
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
-| ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
-| id | bigint(20) |  | false | auto_increment |  |  |  |
-| name | varchar(255) | NULL | true |  |  |  |  |
-| description | text | NULL | true |  |  |  |  |
-| memo | varchar(255) | NULL | true |  |  |  |  |
-| tracker_id | int(11) | NULL | true |  |  |  |  |
-| author_id | int(11) | NULL | true |  |  |  |  |
-| enabled | tinyint(1) | NULL | true |  |  |  |  |
-| position | int(11) | NULL | true |  |  |  |  |
-| visibility | int(11) | 2 | true |  |  |  |  |
-| created_at | datetime |  | false |  |  |  |  |
-| updated_at | datetime |  | false |  |  |  |  |
+| 名前          | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル                                                                                                                       | 親テーブル                   | コメント     |
+| ----------- | ------------ | ------------ | -------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------- | -------- |
+| id          | bigint(20)   |              | false    | auto_increment   | [global_note_template_projects](global_note_template_projects.md) [global_note_visible_roles](global_note_visible_roles.md) |                         |          |
+| name        | varchar(255) | NULL         | true     |                  |                                                                                                                             |                         |          |
+| description | text         | NULL         | true     |                  |                                                                                                                             |                         |          |
+| memo        | varchar(255) | NULL         | true     |                  |                                                                                                                             |                         |          |
+| tracker_id  | int(11)      | NULL         | true     |                  |                                                                                                                             | [trackers](trackers.md) |          |
+| author_id   | int(11)      | NULL         | true     |                  |                                                                                                                             |                         |          |
+| enabled     | tinyint(1)   | NULL         | true     |                  |                                                                                                                             |                         |          |
+| position    | int(11)      | NULL         | true     |                  |                                                                                                                             |                         |          |
+| visibility  | int(11)      | 2            | true     |                  |                                                                                                                             |                         |          |
+| created_at  | datetime     |              | false    |                  |                                                                                                                             |                         |          |
+| updated_at  | datetime     |              | false    |                  |                                                                                                                             |                         |          |
 
-## Constraints
+## 制約一覧
 
-| Name | Type | Definition |
-| ---- | ---- | ---------- |
+| 名前      | タイプ         | 定義               |
+| ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name | Definition |
-| ---- | ---------- |
-| index_global_note_templates_on_author_id | KEY index_global_note_templates_on_author_id (author_id) USING BTREE |
-| index_global_note_templates_on_enabled | KEY index_global_note_templates_on_enabled (enabled) USING BTREE |
+| 名前                                        | 定義                                                                     |
+| ----------------------------------------- | ---------------------------------------------------------------------- |
+| index_global_note_templates_on_author_id  | KEY index_global_note_templates_on_author_id (author_id) USING BTREE   |
+| index_global_note_templates_on_enabled    | KEY index_global_note_templates_on_enabled (enabled) USING BTREE       |
 | index_global_note_templates_on_tracker_id | KEY index_global_note_templates_on_tracker_id (tracker_id) USING BTREE |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| PRIMARY                                   | PRIMARY KEY (id) USING BTREE                                           |
 
-## Relations
+## ER図
 
 ![er](global_note_templates.svg)
 
