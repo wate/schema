@@ -1,74 +1,74 @@
 # vendors
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `vendors` (
-  `guid` varchar(32) NOT NULL,
-  `name` varchar(2048) NOT NULL,
-  `id` varchar(2048) NOT NULL,
-  `notes` varchar(2048) NOT NULL,
-  `currency` varchar(32) NOT NULL,
+  `guid` text NOT NULL,
+  `name` text NOT NULL,
+  `id` text NOT NULL,
+  `notes` text NOT NULL,
+  `currency` text NOT NULL,
   `active` int(11) NOT NULL,
   `tax_override` int(11) NOT NULL,
-  `addr_name` varchar(1024) DEFAULT NULL,
-  `addr_addr1` varchar(1024) DEFAULT NULL,
-  `addr_addr2` varchar(1024) DEFAULT NULL,
-  `addr_addr3` varchar(1024) DEFAULT NULL,
-  `addr_addr4` varchar(1024) DEFAULT NULL,
-  `addr_phone` varchar(128) DEFAULT NULL,
-  `addr_fax` varchar(128) DEFAULT NULL,
-  `addr_email` varchar(256) DEFAULT NULL,
-  `terms` varchar(32) DEFAULT NULL,
-  `tax_inc` varchar(2048) DEFAULT NULL,
-  `tax_table` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  `addr_name` text DEFAULT NULL,
+  `addr_addr1` text DEFAULT NULL,
+  `addr_addr2` text DEFAULT NULL,
+  `addr_addr3` text DEFAULT NULL,
+  `addr_addr4` text DEFAULT NULL,
+  `addr_phone` text DEFAULT NULL,
+  `addr_fax` text DEFAULT NULL,
+  `addr_email` text DEFAULT NULL,
+  `terms` text DEFAULT NULL,
+  `tax_inc` text DEFAULT NULL,
+  `tax_table` text DEFAULT NULL,
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name         | Type          | Default | Nullable | Children | Parents | Comment |
-| ------------ | ------------- | ------- | -------- | -------- | ------- | ------- |
-| guid         | varchar(32)   |         | false    |          |         |         |
-| name         | varchar(2048) |         | false    |          |         |         |
-| id           | varchar(2048) |         | false    |          |         |         |
-| notes        | varchar(2048) |         | false    |          |         |         |
-| currency     | varchar(32)   |         | false    |          |         |         |
-| active       | int(11)       |         | false    |          |         |         |
-| tax_override | int(11)       |         | false    |          |         |         |
-| addr_name    | varchar(1024) |         | true     |          |         |         |
-| addr_addr1   | varchar(1024) |         | true     |          |         |         |
-| addr_addr2   | varchar(1024) |         | true     |          |         |         |
-| addr_addr3   | varchar(1024) |         | true     |          |         |         |
-| addr_addr4   | varchar(1024) |         | true     |          |         |         |
-| addr_phone   | varchar(128)  |         | true     |          |         |         |
-| addr_fax     | varchar(128)  |         | true     |          |         |         |
-| addr_email   | varchar(256)  |         | true     |          |         |         |
-| terms        | varchar(32)   |         | true     |          |         |         |
-| tax_inc      | varchar(2048) |         | true     |          |         |         |
-| tax_table    | varchar(32)   |         | true     |          |         |         |
+| 名前           | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ------------ | ------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid         | text    |              | false    |            |            |          |
+| name         | text    |              | false    |            |            |          |
+| id           | text    |              | false    |            |            |          |
+| notes        | text    |              | false    |            |            |          |
+| currency     | text    |              | false    |            |            |          |
+| active       | int(11) |              | false    |            |            |          |
+| tax_override | int(11) |              | false    |            |            |          |
+| addr_name    | text    | NULL         | true     |            |            |          |
+| addr_addr1   | text    | NULL         | true     |            |            |          |
+| addr_addr2   | text    | NULL         | true     |            |            |          |
+| addr_addr3   | text    | NULL         | true     |            |            |          |
+| addr_addr4   | text    | NULL         | true     |            |            |          |
+| addr_phone   | text    | NULL         | true     |            |            |          |
+| addr_fax     | text    | NULL         | true     |            |            |          |
+| addr_email   | text    | NULL         | true     |            |            |          |
+| terms        | text    | NULL         | true     |            |            |          |
+| tax_inc      | text    | NULL         | true     |            |            |          |
+| tax_table    | text    | NULL         | true     |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](vendors.png)
+![er](vendors.svg)
 
 ---
 

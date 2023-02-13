@@ -1,52 +1,52 @@
 # transactions
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `transactions` (
-  `guid` varchar(32) NOT NULL,
-  `currency_guid` varchar(32) NOT NULL,
-  `num` varchar(2048) NOT NULL,
-  `post_date` datetime DEFAULT '1970-01-01 00:00:00',
-  `enter_date` datetime DEFAULT '1970-01-01 00:00:00',
-  `description` varchar(2048) DEFAULT NULL,
-  PRIMARY KEY (`guid`),
-  KEY `tx_post_date_index` (`post_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  `guid` text NOT NULL,
+  `currency_guid` text NOT NULL,
+  `num` text NOT NULL,
+  `post_date` text DEFAULT NULL,
+  `enter_date` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  PRIMARY KEY (`guid`(255)),
+  KEY `tx_post_date_index` (`post_date`(19))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name          | Type          | Default             | Nullable | Children | Parents | Comment |
-| ------------- | ------------- | ------------------- | -------- | -------- | ------- | ------- |
-| guid          | varchar(32)   |                     | false    |          |         |         |
-| currency_guid | varchar(32)   |                     | false    |          |         |         |
-| num           | varchar(2048) |                     | false    |          |         |         |
-| post_date     | datetime      | 1970-01-01 00:00:00 | true     |          |         |         |
-| enter_date    | datetime      | 1970-01-01 00:00:00 | true     |          |         |         |
-| description   | varchar(2048) |                     | true     |          |         |         |
+| 名前            | タイプ    | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ------------- | ------ | ------------ | -------- | ---------- | ---------- | -------- |
+| guid          | text   |              | false    |            |            |          |
+| currency_guid | text   |              | false    |            |            |          |
+| num           | text   |              | false    |            |            |          |
+| post_date     | text   | NULL         | true     |            |            |          |
+| enter_date    | text   | NULL         | true     |            |            |          |
+| description   | text   | NULL         | true     |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name               | Definition                                     |
+| 名前                 | 定義                                             |
 | ------------------ | ---------------------------------------------- |
 | tx_post_date_index | KEY tx_post_date_index (post_date) USING BTREE |
 | PRIMARY            | PRIMARY KEY (guid) USING BTREE                 |
 
-## Relations
+## ER図
 
-![er](transactions.png)
+![er](transactions.svg)
 
 ---
 

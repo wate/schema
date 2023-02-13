@@ -1,0 +1,75 @@
+---
+# -------------
+# tbls setting
+# https://github.com/k1LoW/tbls
+# -------------
+name: Database Schema
+# dsn: mariadb://dbuser:dbpass@localhost:3306/dbname
+# docPath: docs/schema
+er:
+  format: svg
+  comment: true
+  # distance: 2
+format:
+  adjust: true
+dict:
+  Tables: テーブル一覧
+  Description: 概要
+  Columns: カラム一覧
+  Indexes: INDEX一覧
+  Constraints: 制約一覧
+  Triggers: トリガー
+  Labels: ラベル
+  Nullable: NULL許可
+  Relations: ER図
+  Name: 名前
+  Comment: コメント
+  Type: タイプ
+  Default: デフォルト値
+  Children: 子テーブル
+  Parents: 親テーブル
+  Definition: 定義
+  Table Definition: テーブル定義
+exclude:
+  - phinxlog
+  - ar_internal_metadata
+  - schema_migrations
+  - SequelizeMeta
+lint:
+  requireTableComment:
+    enabled: true
+    allOrNothing: false
+  requireColumnComment:
+    enabled: true
+    allOrNothing: true
+    exclude:
+      - id
+      - createdAt
+      - updatedAt
+      - created_at
+      - updated_at
+## ------------
+## コメント
+## ------------
+# comments:
+#   - table: users
+#     # table comment
+#     tableComment: Users table
+#     # labels for tables
+#     labels:
+#       - privary data
+#       - backup:true
+#     # column comments
+#     columnComments:
+#       email: Email address as login id. ex. user@example.com
+## ------------
+## Automatically detect relations
+## ------------
+detectVirtualRelations:
+  enabled: true
+  strategy: default
+## ------------
+## 外部参照制約
+## ------------
+relations: []
+

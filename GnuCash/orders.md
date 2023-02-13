@@ -1,56 +1,56 @@
 # orders
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `orders` (
-  `guid` varchar(32) NOT NULL,
-  `id` varchar(2048) NOT NULL,
-  `notes` varchar(2048) NOT NULL,
-  `reference` varchar(2048) NOT NULL,
+  `guid` text NOT NULL,
+  `id` text NOT NULL,
+  `notes` text NOT NULL,
+  `reference` text NOT NULL,
   `active` int(11) NOT NULL,
-  `date_opened` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
-  `date_closed` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
+  `date_opened` text NOT NULL,
+  `date_closed` text NOT NULL,
   `owner_type` int(11) NOT NULL,
-  `owner_guid` varchar(32) NOT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  `owner_guid` text NOT NULL,
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name        | Type          | Default             | Nullable | Children | Parents | Comment |
-| ----------- | ------------- | ------------------- | -------- | -------- | ------- | ------- |
-| guid        | varchar(32)   |                     | false    |          |         |         |
-| id          | varchar(2048) |                     | false    |          |         |         |
-| notes       | varchar(2048) |                     | false    |          |         |         |
-| reference   | varchar(2048) |                     | false    |          |         |         |
-| active      | int(11)       |                     | false    |          |         |         |
-| date_opened | datetime      | 1970-01-01 00:00:00 | false    |          |         |         |
-| date_closed | datetime      | 1970-01-01 00:00:00 | false    |          |         |         |
-| owner_type  | int(11)       |                     | false    |          |         |         |
-| owner_guid  | varchar(32)   |                     | false    |          |         |         |
+| 名前          | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ----------- | ------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid        | text    |              | false    |            |            |          |
+| id          | text    |              | false    |            |            |          |
+| notes       | text    |              | false    |            |            |          |
+| reference   | text    |              | false    |            |            |          |
+| active      | int(11) |              | false    |            |            |          |
+| date_opened | text    |              | false    |            |            |          |
+| date_closed | text    |              | false    |            |            |          |
+| owner_type  | int(11) |              | false    |            |            |          |
+| owner_guid  | text    |              | false    |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](orders.png)
+![er](orders.svg)
 
 ---
 

@@ -1,64 +1,64 @@
 # slots
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `slots` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `obj_guid` varchar(32) NOT NULL,
-  `name` varchar(4096) NOT NULL,
+  `obj_guid` text NOT NULL,
+  `name` text NOT NULL,
   `slot_type` int(11) NOT NULL,
   `int64_val` bigint(20) DEFAULT NULL,
-  `string_val` varchar(4096) DEFAULT NULL,
-  `double_val` double DEFAULT NULL,
-  `timespec_val` datetime DEFAULT '1970-01-01 00:00:00',
-  `guid_val` varchar(32) DEFAULT NULL,
+  `string_val` text DEFAULT NULL,
+  `double_val` varchar(255) DEFAULT NULL,
+  `timespec_val` text DEFAULT NULL,
+  `guid_val` text DEFAULT NULL,
   `numeric_val_num` bigint(20) DEFAULT NULL,
   `numeric_val_denom` bigint(20) DEFAULT NULL,
-  `gdate_val` date DEFAULT NULL,
+  `gdate_val` text DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `slots_guid_index` (`obj_guid`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8
+  KEY `slots_guid_index` (`obj_guid`(32))
+) ENGINE=InnoDB AUTO_INCREMENT=[Redacted by tbls] DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name              | Type          | Default             | Nullable | Children | Parents | Comment |
-| ----------------- | ------------- | ------------------- | -------- | -------- | ------- | ------- |
-| id                | int(11)       |                     | false    |          |         |         |
-| obj_guid          | varchar(32)   |                     | false    |          |         |         |
-| name              | varchar(4096) |                     | false    |          |         |         |
-| slot_type         | int(11)       |                     | false    |          |         |         |
-| int64_val         | bigint(20)    |                     | true     |          |         |         |
-| string_val        | varchar(4096) |                     | true     |          |         |         |
-| double_val        | double        |                     | true     |          |         |         |
-| timespec_val      | datetime      | 1970-01-01 00:00:00 | true     |          |         |         |
-| guid_val          | varchar(32)   |                     | true     |          |         |         |
-| numeric_val_num   | bigint(20)    |                     | true     |          |         |         |
-| numeric_val_denom | bigint(20)    |                     | true     |          |         |         |
-| gdate_val         | date          |                     | true     |          |         |         |
+| 名前                | タイプ          | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
+| ----------------- | ------------ | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
+| id                | int(11)      |              | false    | auto_increment   |            |            |          |
+| obj_guid          | text         |              | false    |                  |            |            |          |
+| name              | text         |              | false    |                  |            |            |          |
+| slot_type         | int(11)      |              | false    |                  |            |            |          |
+| int64_val         | bigint(20)   | NULL         | true     |                  |            |            |          |
+| string_val        | text         | NULL         | true     |                  |            |            |          |
+| double_val        | varchar(255) | NULL         | true     |                  |            |            |          |
+| timespec_val      | text         | NULL         | true     |                  |            |            |          |
+| guid_val          | text         | NULL         | true     |                  |            |            |          |
+| numeric_val_num   | bigint(20)   | NULL         | true     |                  |            |            |          |
+| numeric_val_denom | bigint(20)   | NULL         | true     |                  |            |            |          |
+| gdate_val         | text         | NULL         | true     |                  |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition       |
+| 名前      | タイプ         | 定義               |
 | ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name             | Definition                                  |
+| 名前               | 定義                                          |
 | ---------------- | ------------------------------------------- |
 | slots_guid_index | KEY slots_guid_index (obj_guid) USING BTREE |
 | PRIMARY          | PRIMARY KEY (id) USING BTREE                |
 
-## Relations
+## ER図
 
-![er](slots.png)
+![er](slots.svg)
 
 ---
 

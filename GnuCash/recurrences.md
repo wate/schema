@@ -1,50 +1,50 @@
 # recurrences
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `recurrences` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `obj_guid` varchar(32) NOT NULL,
+  `obj_guid` text NOT NULL,
   `recurrence_mult` int(11) NOT NULL,
-  `recurrence_period_type` varchar(2048) NOT NULL,
-  `recurrence_period_start` date NOT NULL,
-  `recurrence_weekend_adjust` varchar(2048) NOT NULL,
+  `recurrence_period_type` text NOT NULL,
+  `recurrence_period_start` text NOT NULL,
+  `recurrence_weekend_adjust` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name                      | Type          | Default | Nullable | Children | Parents | Comment |
-| ------------------------- | ------------- | ------- | -------- | -------- | ------- | ------- |
-| id                        | int(11)       |         | false    |          |         |         |
-| obj_guid                  | varchar(32)   |         | false    |          |         |         |
-| recurrence_mult           | int(11)       |         | false    |          |         |         |
-| recurrence_period_type    | varchar(2048) |         | false    |          |         |         |
-| recurrence_period_start   | date          |         | false    |          |         |         |
-| recurrence_weekend_adjust | varchar(2048) |         | false    |          |         |         |
+| 名前                        | タイプ     | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
+| ------------------------- | ------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
+| id                        | int(11) |              | false    | auto_increment   |            |            |          |
+| obj_guid                  | text    |              | false    |                  |            |            |          |
+| recurrence_mult           | int(11) |              | false    |                  |            |            |          |
+| recurrence_period_type    | text    |              | false    |                  |            |            |          |
+| recurrence_period_start   | text    |              | false    |                  |            |            |          |
+| recurrence_weekend_adjust | text    |              | false    |                  |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition       |
+| 名前      | タイプ         | 定義               |
 | ------- | ----------- | ---------------- |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                   |
+| 名前      | 定義                           |
 | ------- | ---------------------------- |
 | PRIMARY | PRIMARY KEY (id) USING BTREE |
 
-## Relations
+## ER図
 
-![er](recurrences.png)
+![er](recurrences.svg)
 
 ---
 

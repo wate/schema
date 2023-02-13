@@ -1,78 +1,78 @@
 # employees
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `employees` (
-  `guid` varchar(32) NOT NULL,
-  `username` varchar(2048) NOT NULL,
-  `id` varchar(2048) NOT NULL,
-  `language` varchar(2048) NOT NULL,
-  `acl` varchar(2048) NOT NULL,
+  `guid` text NOT NULL,
+  `username` text NOT NULL,
+  `id` text NOT NULL,
+  `language` text NOT NULL,
+  `acl` text NOT NULL,
   `active` int(11) NOT NULL,
-  `currency` varchar(32) NOT NULL,
-  `ccard_guid` varchar(32) DEFAULT NULL,
+  `currency` text NOT NULL,
+  `ccard_guid` text DEFAULT NULL,
   `workday_num` bigint(20) NOT NULL,
   `workday_denom` bigint(20) NOT NULL,
   `rate_num` bigint(20) NOT NULL,
   `rate_denom` bigint(20) NOT NULL,
-  `addr_name` varchar(1024) DEFAULT NULL,
-  `addr_addr1` varchar(1024) DEFAULT NULL,
-  `addr_addr2` varchar(1024) DEFAULT NULL,
-  `addr_addr3` varchar(1024) DEFAULT NULL,
-  `addr_addr4` varchar(1024) DEFAULT NULL,
-  `addr_phone` varchar(128) DEFAULT NULL,
-  `addr_fax` varchar(128) DEFAULT NULL,
-  `addr_email` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  `addr_name` text DEFAULT NULL,
+  `addr_addr1` text DEFAULT NULL,
+  `addr_addr2` text DEFAULT NULL,
+  `addr_addr3` text DEFAULT NULL,
+  `addr_addr4` text DEFAULT NULL,
+  `addr_phone` text DEFAULT NULL,
+  `addr_fax` text DEFAULT NULL,
+  `addr_email` text DEFAULT NULL,
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name          | Type          | Default | Nullable | Children | Parents | Comment |
-| ------------- | ------------- | ------- | -------- | -------- | ------- | ------- |
-| guid          | varchar(32)   |         | false    |          |         |         |
-| username      | varchar(2048) |         | false    |          |         |         |
-| id            | varchar(2048) |         | false    |          |         |         |
-| language      | varchar(2048) |         | false    |          |         |         |
-| acl           | varchar(2048) |         | false    |          |         |         |
-| active        | int(11)       |         | false    |          |         |         |
-| currency      | varchar(32)   |         | false    |          |         |         |
-| ccard_guid    | varchar(32)   |         | true     |          |         |         |
-| workday_num   | bigint(20)    |         | false    |          |         |         |
-| workday_denom | bigint(20)    |         | false    |          |         |         |
-| rate_num      | bigint(20)    |         | false    |          |         |         |
-| rate_denom    | bigint(20)    |         | false    |          |         |         |
-| addr_name     | varchar(1024) |         | true     |          |         |         |
-| addr_addr1    | varchar(1024) |         | true     |          |         |         |
-| addr_addr2    | varchar(1024) |         | true     |          |         |         |
-| addr_addr3    | varchar(1024) |         | true     |          |         |         |
-| addr_addr4    | varchar(1024) |         | true     |          |         |         |
-| addr_phone    | varchar(128)  |         | true     |          |         |         |
-| addr_fax      | varchar(128)  |         | true     |          |         |         |
-| addr_email    | varchar(256)  |         | true     |          |         |         |
+| 名前            | タイプ        | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ------------- | ---------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid          | text       |              | false    |            |            |          |
+| username      | text       |              | false    |            |            |          |
+| id            | text       |              | false    |            |            |          |
+| language      | text       |              | false    |            |            |          |
+| acl           | text       |              | false    |            |            |          |
+| active        | int(11)    |              | false    |            |            |          |
+| currency      | text       |              | false    |            |            |          |
+| ccard_guid    | text       | NULL         | true     |            |            |          |
+| workday_num   | bigint(20) |              | false    |            |            |          |
+| workday_denom | bigint(20) |              | false    |            |            |          |
+| rate_num      | bigint(20) |              | false    |            |            |          |
+| rate_denom    | bigint(20) |              | false    |            |            |          |
+| addr_name     | text       | NULL         | true     |            |            |          |
+| addr_addr1    | text       | NULL         | true     |            |            |          |
+| addr_addr2    | text       | NULL         | true     |            |            |          |
+| addr_addr3    | text       | NULL         | true     |            |            |          |
+| addr_addr4    | text       | NULL         | true     |            |            |          |
+| addr_phone    | text       | NULL         | true     |            |            |          |
+| addr_fax      | text       | NULL         | true     |            |            |          |
+| addr_email    | text       | NULL         | true     |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](employees.png)
+![er](employees.svg)
 
 ---
 

@@ -1,74 +1,74 @@
 # invoices
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `invoices` (
-  `guid` varchar(32) NOT NULL,
-  `id` varchar(2048) NOT NULL,
-  `date_opened` datetime DEFAULT '1970-01-01 00:00:00',
-  `date_posted` datetime DEFAULT '1970-01-01 00:00:00',
-  `notes` varchar(2048) NOT NULL,
+  `guid` text NOT NULL,
+  `id` text NOT NULL,
+  `date_opened` text DEFAULT NULL,
+  `date_posted` text DEFAULT NULL,
+  `notes` text NOT NULL,
   `active` int(11) NOT NULL,
-  `currency` varchar(32) NOT NULL,
+  `currency` text NOT NULL,
   `owner_type` int(11) DEFAULT NULL,
-  `owner_guid` varchar(32) DEFAULT NULL,
-  `terms` varchar(32) DEFAULT NULL,
-  `billing_id` varchar(2048) DEFAULT NULL,
-  `post_txn` varchar(32) DEFAULT NULL,
-  `post_lot` varchar(32) DEFAULT NULL,
-  `post_acc` varchar(32) DEFAULT NULL,
+  `owner_guid` text DEFAULT NULL,
+  `terms` text DEFAULT NULL,
+  `billing_id` text DEFAULT NULL,
+  `post_txn` text DEFAULT NULL,
+  `post_lot` text DEFAULT NULL,
+  `post_acc` text DEFAULT NULL,
   `billto_type` int(11) DEFAULT NULL,
-  `billto_guid` varchar(32) DEFAULT NULL,
+  `billto_guid` text DEFAULT NULL,
   `charge_amt_num` bigint(20) DEFAULT NULL,
   `charge_amt_denom` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name             | Type          | Default             | Nullable | Children | Parents | Comment |
-| ---------------- | ------------- | ------------------- | -------- | -------- | ------- | ------- |
-| guid             | varchar(32)   |                     | false    |          |         |         |
-| id               | varchar(2048) |                     | false    |          |         |         |
-| date_opened      | datetime      | 1970-01-01 00:00:00 | true     |          |         |         |
-| date_posted      | datetime      | 1970-01-01 00:00:00 | true     |          |         |         |
-| notes            | varchar(2048) |                     | false    |          |         |         |
-| active           | int(11)       |                     | false    |          |         |         |
-| currency         | varchar(32)   |                     | false    |          |         |         |
-| owner_type       | int(11)       |                     | true     |          |         |         |
-| owner_guid       | varchar(32)   |                     | true     |          |         |         |
-| terms            | varchar(32)   |                     | true     |          |         |         |
-| billing_id       | varchar(2048) |                     | true     |          |         |         |
-| post_txn         | varchar(32)   |                     | true     |          |         |         |
-| post_lot         | varchar(32)   |                     | true     |          |         |         |
-| post_acc         | varchar(32)   |                     | true     |          |         |         |
-| billto_type      | int(11)       |                     | true     |          |         |         |
-| billto_guid      | varchar(32)   |                     | true     |          |         |         |
-| charge_amt_num   | bigint(20)    |                     | true     |          |         |         |
-| charge_amt_denom | bigint(20)    |                     | true     |          |         |         |
+| 名前               | タイプ        | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ---------------- | ---------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid             | text       |              | false    |            |            |          |
+| id               | text       |              | false    |            |            |          |
+| date_opened      | text       | NULL         | true     |            |            |          |
+| date_posted      | text       | NULL         | true     |            |            |          |
+| notes            | text       |              | false    |            |            |          |
+| active           | int(11)    |              | false    |            |            |          |
+| currency         | text       |              | false    |            |            |          |
+| owner_type       | int(11)    | NULL         | true     |            |            |          |
+| owner_guid       | text       | NULL         | true     |            |            |          |
+| terms            | text       | NULL         | true     |            |            |          |
+| billing_id       | text       | NULL         | true     |            |            |          |
+| post_txn         | text       | NULL         | true     |            |            |          |
+| post_lot         | text       | NULL         | true     |            |            |          |
+| post_acc         | text       | NULL         | true     |            |            |          |
+| billto_type      | int(11)    | NULL         | true     |            |            |          |
+| billto_guid      | text       | NULL         | true     |            |            |          |
+| charge_amt_num   | bigint(20) | NULL         | true     |            |            |          |
+| charge_amt_denom | bigint(20) | NULL         | true     |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](invoices.png)
+![er](invoices.svg)
 
 ---
 

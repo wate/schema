@@ -1,54 +1,54 @@
 # prices
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `prices` (
-  `guid` varchar(32) NOT NULL,
-  `commodity_guid` varchar(32) NOT NULL,
-  `currency_guid` varchar(32) NOT NULL,
-  `date` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
-  `source` varchar(2048) DEFAULT NULL,
-  `type` varchar(2048) DEFAULT NULL,
+  `guid` text NOT NULL,
+  `commodity_guid` text NOT NULL,
+  `currency_guid` text NOT NULL,
+  `date` text NOT NULL,
+  `source` text DEFAULT NULL,
+  `type` text DEFAULT NULL,
   `value_num` bigint(20) NOT NULL,
   `value_denom` bigint(20) NOT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name           | Type          | Default             | Nullable | Children | Parents | Comment |
-| -------------- | ------------- | ------------------- | -------- | -------- | ------- | ------- |
-| guid           | varchar(32)   |                     | false    |          |         |         |
-| commodity_guid | varchar(32)   |                     | false    |          |         |         |
-| currency_guid  | varchar(32)   |                     | false    |          |         |         |
-| date           | datetime      | 1970-01-01 00:00:00 | false    |          |         |         |
-| source         | varchar(2048) |                     | true     |          |         |         |
-| type           | varchar(2048) |                     | true     |          |         |         |
-| value_num      | bigint(20)    |                     | false    |          |         |         |
-| value_denom    | bigint(20)    |                     | false    |          |         |         |
+| 名前             | タイプ        | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| -------------- | ---------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid           | text       |              | false    |            |            |          |
+| commodity_guid | text       |              | false    |            |            |          |
+| currency_guid  | text       |              | false    |            |            |          |
+| date           | text       |              | false    |            |            |          |
+| source         | text       | NULL         | true     |            |            |          |
+| type           | text       | NULL         | true     |            |            |          |
+| value_num      | bigint(20) |              | false    |            |            |          |
+| value_denom    | bigint(20) |              | false    |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](prices.png)
+![er](prices.svg)
 
 ---
 

@@ -1,46 +1,46 @@
 # budgets
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `budgets` (
-  `guid` varchar(32) NOT NULL,
-  `name` varchar(2048) NOT NULL,
-  `description` varchar(2048) DEFAULT NULL,
+  `guid` text NOT NULL,
+  `name` text NOT NULL,
+  `description` text DEFAULT NULL,
   `num_periods` int(11) NOT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name        | Type          | Default | Nullable | Children | Parents | Comment |
-| ----------- | ------------- | ------- | -------- | -------- | ------- | ------- |
-| guid        | varchar(32)   |         | false    |          |         |         |
-| name        | varchar(2048) |         | false    |          |         |         |
-| description | varchar(2048) |         | true     |          |         |         |
-| num_periods | int(11)       |         | false    |          |         |         |
+| 名前          | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ----------- | ------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid        | text    |              | false    |            |            |          |
+| name        | text    |              | false    |            |            |          |
+| description | text    | NULL         | true     |            |            |          |
+| num_periods | int(11) |              | false    |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](budgets.png)
+![er](budgets.svg)
 
 ---
 

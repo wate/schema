@@ -1,56 +1,56 @@
 # commodities
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `commodities` (
-  `guid` varchar(32) NOT NULL,
-  `namespace` varchar(2048) NOT NULL,
-  `mnemonic` varchar(2048) NOT NULL,
-  `fullname` varchar(2048) DEFAULT NULL,
-  `cusip` varchar(2048) DEFAULT NULL,
+  `guid` text NOT NULL,
+  `namespace` text NOT NULL,
+  `mnemonic` text NOT NULL,
+  `fullname` text DEFAULT NULL,
+  `cusip` text DEFAULT NULL,
   `fraction` int(11) NOT NULL,
   `quote_flag` int(11) NOT NULL,
-  `quote_source` varchar(2048) DEFAULT NULL,
-  `quote_tz` varchar(2048) DEFAULT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  `quote_source` text DEFAULT NULL,
+  `quote_tz` text DEFAULT NULL,
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name         | Type          | Default | Nullable | Children | Parents | Comment |
-| ------------ | ------------- | ------- | -------- | -------- | ------- | ------- |
-| guid         | varchar(32)   |         | false    |          |         |         |
-| namespace    | varchar(2048) |         | false    |          |         |         |
-| mnemonic     | varchar(2048) |         | false    |          |         |         |
-| fullname     | varchar(2048) |         | true     |          |         |         |
-| cusip        | varchar(2048) |         | true     |          |         |         |
-| fraction     | int(11)       |         | false    |          |         |         |
-| quote_flag   | int(11)       |         | false    |          |         |         |
-| quote_source | varchar(2048) |         | true     |          |         |         |
-| quote_tz     | varchar(2048) |         | true     |          |         |         |
+| 名前           | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ------------ | ------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid         | text    |              | false    |            |            |          |
+| namespace    | text    |              | false    |            |            |          |
+| mnemonic     | text    |              | false    |            |            |          |
+| fullname     | text    | NULL         | true     |            |            |          |
+| cusip        | text    | NULL         | true     |            |            |          |
+| fraction     | int(11) |              | false    |            |            |          |
+| quote_flag   | int(11) |              | false    |            |            |          |
+| quote_source | text    | NULL         | true     |            |            |          |
+| quote_tz     | text    | NULL         | true     |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](commodities.png)
+![er](commodities.svg)
 
 ---
 

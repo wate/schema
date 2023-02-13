@@ -1,44 +1,44 @@
 # lots
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `lots` (
-  `guid` varchar(32) NOT NULL,
-  `account_guid` varchar(32) DEFAULT NULL,
+  `guid` text NOT NULL,
+  `account_guid` text DEFAULT NULL,
   `is_closed` int(11) NOT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name         | Type        | Default | Nullable | Children | Parents | Comment |
-| ------------ | ----------- | ------- | -------- | -------- | ------- | ------- |
-| guid         | varchar(32) |         | false    |          |         |         |
-| account_guid | varchar(32) |         | true     |          |         |         |
-| is_closed    | int(11)     |         | false    |          |         |         |
+| 名前           | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ------------ | ------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid         | text    |              | false    |            |            |          |
+| account_guid | text    | NULL         | true     |            |            |          |
+| is_closed    | int(11) |              | false    |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](lots.png)
+![er](lots.svg)
 
 ---
 

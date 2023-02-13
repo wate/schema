@@ -1,42 +1,42 @@
 # versions
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `versions` (
-  `table_name` varchar(50) NOT NULL,
+  `table_name` text NOT NULL,
   `table_version` int(11) NOT NULL,
-  PRIMARY KEY (`table_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  PRIMARY KEY (`table_name`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name          | Type        | Default | Nullable | Children | Parents | Comment |
-| ------------- | ----------- | ------- | -------- | -------- | ------- | ------- |
-| table_name    | varchar(50) |         | false    |          |         |         |
-| table_version | int(11)     |         | false    |          |         |         |
+| 名前            | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ------------- | ------- | ------------ | -------- | ---------- | ---------- | -------- |
+| table_name    | text    |              | false    |            |            |          |
+| table_version | int(11) |              | false    |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition               |
+| 名前      | タイプ         | 定義                       |
 | ------- | ----------- | ------------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (table_name) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                           |
+| 名前      | 定義                                   |
 | ------- | ------------------------------------ |
 | PRIMARY | PRIMARY KEY (table_name) USING BTREE |
 
-## Relations
+## ER図
 
-![er](versions.png)
+![er](versions.svg)
 
 ---
 

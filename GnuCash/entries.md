@@ -1,100 +1,100 @@
 # entries
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `entries` (
-  `guid` varchar(32) NOT NULL,
-  `date` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
-  `date_entered` datetime DEFAULT '1970-01-01 00:00:00',
-  `description` varchar(2048) DEFAULT NULL,
-  `action` varchar(2048) DEFAULT NULL,
-  `notes` varchar(2048) DEFAULT NULL,
+  `guid` text NOT NULL,
+  `date` text NOT NULL,
+  `date_entered` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `action` text DEFAULT NULL,
+  `notes` text DEFAULT NULL,
   `quantity_num` bigint(20) DEFAULT NULL,
   `quantity_denom` bigint(20) DEFAULT NULL,
-  `i_acct` varchar(32) DEFAULT NULL,
+  `i_acct` text DEFAULT NULL,
   `i_price_num` bigint(20) DEFAULT NULL,
   `i_price_denom` bigint(20) DEFAULT NULL,
   `i_discount_num` bigint(20) DEFAULT NULL,
   `i_discount_denom` bigint(20) DEFAULT NULL,
-  `invoice` varchar(32) DEFAULT NULL,
-  `i_disc_type` varchar(2048) DEFAULT NULL,
-  `i_disc_how` varchar(2048) DEFAULT NULL,
+  `invoice` text DEFAULT NULL,
+  `i_disc_type` text DEFAULT NULL,
+  `i_disc_how` text DEFAULT NULL,
   `i_taxable` int(11) DEFAULT NULL,
   `i_taxincluded` int(11) DEFAULT NULL,
-  `i_taxtable` varchar(32) DEFAULT NULL,
-  `b_acct` varchar(32) DEFAULT NULL,
+  `i_taxtable` text DEFAULT NULL,
+  `b_acct` text DEFAULT NULL,
   `b_price_num` bigint(20) DEFAULT NULL,
   `b_price_denom` bigint(20) DEFAULT NULL,
-  `bill` varchar(32) DEFAULT NULL,
+  `bill` text DEFAULT NULL,
   `b_taxable` int(11) DEFAULT NULL,
   `b_taxincluded` int(11) DEFAULT NULL,
-  `b_taxtable` varchar(32) DEFAULT NULL,
+  `b_taxtable` text DEFAULT NULL,
   `b_paytype` int(11) DEFAULT NULL,
   `billable` int(11) DEFAULT NULL,
   `billto_type` int(11) DEFAULT NULL,
-  `billto_guid` varchar(32) DEFAULT NULL,
-  `order_guid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  `billto_guid` text DEFAULT NULL,
+  `order_guid` text DEFAULT NULL,
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name             | Type          | Default             | Nullable | Children | Parents | Comment |
-| ---------------- | ------------- | ------------------- | -------- | -------- | ------- | ------- |
-| guid             | varchar(32)   |                     | false    |          |         |         |
-| date             | datetime      | 1970-01-01 00:00:00 | false    |          |         |         |
-| date_entered     | datetime      | 1970-01-01 00:00:00 | true     |          |         |         |
-| description      | varchar(2048) |                     | true     |          |         |         |
-| action           | varchar(2048) |                     | true     |          |         |         |
-| notes            | varchar(2048) |                     | true     |          |         |         |
-| quantity_num     | bigint(20)    |                     | true     |          |         |         |
-| quantity_denom   | bigint(20)    |                     | true     |          |         |         |
-| i_acct           | varchar(32)   |                     | true     |          |         |         |
-| i_price_num      | bigint(20)    |                     | true     |          |         |         |
-| i_price_denom    | bigint(20)    |                     | true     |          |         |         |
-| i_discount_num   | bigint(20)    |                     | true     |          |         |         |
-| i_discount_denom | bigint(20)    |                     | true     |          |         |         |
-| invoice          | varchar(32)   |                     | true     |          |         |         |
-| i_disc_type      | varchar(2048) |                     | true     |          |         |         |
-| i_disc_how       | varchar(2048) |                     | true     |          |         |         |
-| i_taxable        | int(11)       |                     | true     |          |         |         |
-| i_taxincluded    | int(11)       |                     | true     |          |         |         |
-| i_taxtable       | varchar(32)   |                     | true     |          |         |         |
-| b_acct           | varchar(32)   |                     | true     |          |         |         |
-| b_price_num      | bigint(20)    |                     | true     |          |         |         |
-| b_price_denom    | bigint(20)    |                     | true     |          |         |         |
-| bill             | varchar(32)   |                     | true     |          |         |         |
-| b_taxable        | int(11)       |                     | true     |          |         |         |
-| b_taxincluded    | int(11)       |                     | true     |          |         |         |
-| b_taxtable       | varchar(32)   |                     | true     |          |         |         |
-| b_paytype        | int(11)       |                     | true     |          |         |         |
-| billable         | int(11)       |                     | true     |          |         |         |
-| billto_type      | int(11)       |                     | true     |          |         |         |
-| billto_guid      | varchar(32)   |                     | true     |          |         |         |
-| order_guid       | varchar(32)   |                     | true     |          |         |         |
+| 名前               | タイプ        | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ---------------- | ---------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid             | text       |              | false    |            |            |          |
+| date             | text       |              | false    |            |            |          |
+| date_entered     | text       | NULL         | true     |            |            |          |
+| description      | text       | NULL         | true     |            |            |          |
+| action           | text       | NULL         | true     |            |            |          |
+| notes            | text       | NULL         | true     |            |            |          |
+| quantity_num     | bigint(20) | NULL         | true     |            |            |          |
+| quantity_denom   | bigint(20) | NULL         | true     |            |            |          |
+| i_acct           | text       | NULL         | true     |            |            |          |
+| i_price_num      | bigint(20) | NULL         | true     |            |            |          |
+| i_price_denom    | bigint(20) | NULL         | true     |            |            |          |
+| i_discount_num   | bigint(20) | NULL         | true     |            |            |          |
+| i_discount_denom | bigint(20) | NULL         | true     |            |            |          |
+| invoice          | text       | NULL         | true     |            |            |          |
+| i_disc_type      | text       | NULL         | true     |            |            |          |
+| i_disc_how       | text       | NULL         | true     |            |            |          |
+| i_taxable        | int(11)    | NULL         | true     |            |            |          |
+| i_taxincluded    | int(11)    | NULL         | true     |            |            |          |
+| i_taxtable       | text       | NULL         | true     |            |            |          |
+| b_acct           | text       | NULL         | true     |            |            |          |
+| b_price_num      | bigint(20) | NULL         | true     |            |            |          |
+| b_price_denom    | bigint(20) | NULL         | true     |            |            |          |
+| bill             | text       | NULL         | true     |            |            |          |
+| b_taxable        | int(11)    | NULL         | true     |            |            |          |
+| b_taxincluded    | int(11)    | NULL         | true     |            |            |          |
+| b_taxtable       | text       | NULL         | true     |            |            |          |
+| b_paytype        | int(11)    | NULL         | true     |            |            |          |
+| billable         | int(11)    | NULL         | true     |            |            |          |
+| billto_type      | int(11)    | NULL         | true     |            |            |          |
+| billto_guid      | text       | NULL         | true     |            |            |          |
+| order_guid       | text       | NULL         | true     |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](entries.png)
+![er](entries.svg)
 
 ---
 

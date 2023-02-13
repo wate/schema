@@ -1,52 +1,52 @@
 # jobs
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `jobs` (
-  `guid` varchar(32) NOT NULL,
-  `id` varchar(2048) NOT NULL,
-  `name` varchar(2048) NOT NULL,
-  `reference` varchar(2048) NOT NULL,
+  `guid` text NOT NULL,
+  `id` text NOT NULL,
+  `name` text NOT NULL,
+  `reference` text NOT NULL,
   `active` int(11) NOT NULL,
   `owner_type` int(11) DEFAULT NULL,
-  `owner_guid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  `owner_guid` text DEFAULT NULL,
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name       | Type          | Default | Nullable | Children | Parents | Comment |
-| ---------- | ------------- | ------- | -------- | -------- | ------- | ------- |
-| guid       | varchar(32)   |         | false    |          |         |         |
-| id         | varchar(2048) |         | false    |          |         |         |
-| name       | varchar(2048) |         | false    |          |         |         |
-| reference  | varchar(2048) |         | false    |          |         |         |
-| active     | int(11)       |         | false    |          |         |         |
-| owner_type | int(11)       |         | true     |          |         |         |
-| owner_guid | varchar(32)   |         | true     |          |         |         |
+| 名前         | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ---------- | ------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid       | text    |              | false    |            |            |          |
+| id         | text    |              | false    |            |            |          |
+| name       | text    |              | false    |            |            |          |
+| reference  | text    |              | false    |            |            |          |
+| active     | int(11) |              | false    |            |            |          |
+| owner_type | int(11) | NULL         | true     |            |            |          |
+| owner_guid | text    | NULL         | true     |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](jobs.png)
+![er](jobs.svg)
 
 ---
 

@@ -1,18 +1,18 @@
 # schedxactions
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `schedxactions` (
-  `guid` varchar(32) NOT NULL,
-  `name` varchar(2048) DEFAULT NULL,
+  `guid` text NOT NULL,
+  `name` text DEFAULT NULL,
   `enabled` int(11) NOT NULL,
-  `start_date` date DEFAULT NULL,
-  `end_date` date DEFAULT NULL,
-  `last_occur` date DEFAULT NULL,
+  `start_date` text DEFAULT NULL,
+  `end_date` text DEFAULT NULL,
+  `last_occur` text DEFAULT NULL,
   `num_occur` int(11) NOT NULL,
   `rem_occur` int(11) NOT NULL,
   `auto_create` int(11) NOT NULL,
@@ -20,47 +20,47 @@ CREATE TABLE `schedxactions` (
   `adv_creation` int(11) NOT NULL,
   `adv_notify` int(11) NOT NULL,
   `instance_count` int(11) NOT NULL,
-  `template_act_guid` varchar(32) NOT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  `template_act_guid` text NOT NULL,
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name              | Type          | Default | Nullable | Children | Parents | Comment |
-| ----------------- | ------------- | ------- | -------- | -------- | ------- | ------- |
-| guid              | varchar(32)   |         | false    |          |         |         |
-| name              | varchar(2048) |         | true     |          |         |         |
-| enabled           | int(11)       |         | false    |          |         |         |
-| start_date        | date          |         | true     |          |         |         |
-| end_date          | date          |         | true     |          |         |         |
-| last_occur        | date          |         | true     |          |         |         |
-| num_occur         | int(11)       |         | false    |          |         |         |
-| rem_occur         | int(11)       |         | false    |          |         |         |
-| auto_create       | int(11)       |         | false    |          |         |         |
-| auto_notify       | int(11)       |         | false    |          |         |         |
-| adv_creation      | int(11)       |         | false    |          |         |         |
-| adv_notify        | int(11)       |         | false    |          |         |         |
-| instance_count    | int(11)       |         | false    |          |         |         |
-| template_act_guid | varchar(32)   |         | false    |          |         |         |
+| 名前                | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ----------------- | ------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid              | text    |              | false    |            |            |          |
+| name              | text    | NULL         | true     |            |            |          |
+| enabled           | int(11) |              | false    |            |            |          |
+| start_date        | text    | NULL         | true     |            |            |          |
+| end_date          | text    | NULL         | true     |            |            |          |
+| last_occur        | text    | NULL         | true     |            |            |          |
+| num_occur         | int(11) |              | false    |            |            |          |
+| rem_occur         | int(11) |              | false    |            |            |          |
+| auto_create       | int(11) |              | false    |            |            |          |
+| auto_notify       | int(11) |              | false    |            |            |          |
+| adv_creation      | int(11) |              | false    |            |            |          |
+| adv_notify        | int(11) |              | false    |            |            |          |
+| instance_count    | int(11) |              | false    |            |            |          |
+| template_act_guid | text    |              | false    |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](schedxactions.png)
+![er](schedxactions.svg)
 
 ---
 

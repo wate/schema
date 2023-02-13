@@ -1,48 +1,48 @@
 # taxtables
 
-## Description
+## 概要
 
 <details>
-<summary><strong>Table Definition</strong></summary>
+<summary><strong>テーブル定義</strong></summary>
 
 ```sql
 CREATE TABLE `taxtables` (
-  `guid` varchar(32) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `guid` text NOT NULL,
+  `name` text NOT NULL,
   `refcount` bigint(20) NOT NULL,
   `invisible` int(11) NOT NULL,
-  `parent` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  `parent` text DEFAULT NULL,
+  PRIMARY KEY (`guid`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
 </details>
 
-## Columns
+## カラム一覧
 
-| Name      | Type        | Default | Nullable | Children | Parents | Comment |
-| --------- | ----------- | ------- | -------- | -------- | ------- | ------- |
-| guid      | varchar(32) |         | false    |          |         |         |
-| name      | varchar(50) |         | false    |          |         |         |
-| refcount  | bigint(20)  |         | false    |          |         |         |
-| invisible | int(11)     |         | false    |          |         |         |
-| parent    | varchar(32) |         | true     |          |         |         |
+| 名前        | タイプ        | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| --------- | ---------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid      | text       |              | false    |            |            |          |
+| name      | text       |              | false    |            |            |          |
+| refcount  | bigint(20) |              | false    |            |            |          |
+| invisible | int(11)    |              | false    |            |            |          |
+| parent    | text       | NULL         | true     |            |            |          |
 
-## Constraints
+## 制約一覧
 
-| Name    | Type        | Definition         |
+| 名前      | タイプ         | 定義                 |
 | ------- | ----------- | ------------------ |
 | PRIMARY | PRIMARY KEY | PRIMARY KEY (guid) |
 
-## Indexes
+## INDEX一覧
 
-| Name    | Definition                     |
+| 名前      | 定義                             |
 | ------- | ------------------------------ |
 | PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
-## Relations
+## ER図
 
-![er](taxtables.png)
+![er](taxtables.svg)
 
 ---
 
