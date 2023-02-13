@@ -22,10 +22,10 @@
 <text text-anchor="start" x="67.7798" y="-206.9" font-family="Arial" font-size="14.00" fill="#666666">[int(11)]</text>
 <polygon fill="none" stroke="#000000" points="46,-165.5 46,-195.5 284,-195.5 284,-165.5 46,-165.5"/>
 <text text-anchor="start" x="53" y="-176.9" font-family="Arial" font-size="14.00" fill="#000000">taxtable </text>
-<text text-anchor="start" x="105.9088" y="-176.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="105.9088" y="-176.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-135.5 46,-165.5 284,-165.5 284,-135.5 46,-135.5"/>
 <text text-anchor="start" x="53" y="-146.9" font-family="Arial" font-size="14.00" fill="#000000">account </text>
-<text text-anchor="start" x="105.9116" y="-146.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="105.9116" y="-146.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-105.5 46,-135.5 284,-135.5 284,-105.5 46,-105.5"/>
 <text text-anchor="start" x="53" y="-116.9" font-family="Arial" font-size="14.00" fill="#000000">amount_num </text>
 <text text-anchor="start" x="138.5806" y="-116.9" font-family="Arial" font-size="14.00" fill="#666666">[bigint(20)]</text>

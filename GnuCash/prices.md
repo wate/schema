@@ -7,15 +7,15 @@
 
 ```sql
 CREATE TABLE `prices` (
-  `guid` text NOT NULL,
-  `commodity_guid` text NOT NULL,
-  `currency_guid` text NOT NULL,
-  `date` text NOT NULL,
+  `guid` varchar(32) NOT NULL,
+  `commodity_guid` varchar(32) NOT NULL,
+  `currency_guid` varchar(32) NOT NULL,
+  `date` datetime NOT NULL,
   `source` text DEFAULT NULL,
   `type` text DEFAULT NULL,
-  `value_num` bigint(20) NOT NULL,
-  `value_denom` bigint(20) NOT NULL,
-  PRIMARY KEY (`guid`(255))
+  `value_num` int(11) NOT NULL,
+  `value_denom` int(11) NOT NULL,
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -23,16 +23,16 @@ CREATE TABLE `prices` (
 
 ## カラム一覧
 
-| 名前             | タイプ        | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| -------------- | ---------- | ------------ | -------- | ---------- | ---------- | -------- |
-| guid           | text       |              | false    |            |            |          |
-| commodity_guid | text       |              | false    |            |            |          |
-| currency_guid  | text       |              | false    |            |            |          |
-| date           | text       |              | false    |            |            |          |
-| source         | text       | NULL         | true     |            |            |          |
-| type           | text       | NULL         | true     |            |            |          |
-| value_num      | bigint(20) |              | false    |            |            |          |
-| value_denom    | bigint(20) |              | false    |            |            |          |
+| 名前             | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| -------------- | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid           | varchar(32) |              | false    |            |            |          |
+| commodity_guid | varchar(32) |              | false    |            |            |          |
+| currency_guid  | varchar(32) |              | false    |            |            |          |
+| date           | datetime    |              | false    |            |            |          |
+| source         | text        | NULL         | true     |            |            |          |
+| type           | text        | NULL         | true     |            |            |          |
+| value_num      | int(11)     |              | false    |            |            |          |
+| value_denom    | int(11)     |              | false    |            |            |          |
 
 ## 制約一覧
 

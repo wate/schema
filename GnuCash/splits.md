@@ -7,21 +7,19 @@
 
 ```sql
 CREATE TABLE `splits` (
-  `guid` text NOT NULL,
-  `tx_guid` text NOT NULL,
-  `account_guid` text NOT NULL,
+  `guid` varchar(32) NOT NULL,
+  `tx_guid` varchar(32) NOT NULL,
+  `account_guid` varchar(32) NOT NULL,
   `memo` text NOT NULL,
   `action` text NOT NULL,
-  `reconcile_state` text NOT NULL,
-  `reconcile_date` text DEFAULT NULL,
-  `value_num` bigint(20) NOT NULL,
-  `value_denom` bigint(20) NOT NULL,
-  `quantity_num` bigint(20) NOT NULL,
-  `quantity_denom` bigint(20) NOT NULL,
-  `lot_guid` text DEFAULT NULL,
-  PRIMARY KEY (`guid`(255)),
-  KEY `splits_account_guid_index` (`account_guid`(32)),
-  KEY `splits_tx_guid_index` (`tx_guid`(32))
+  `reconcile_state` varchar(1) NOT NULL,
+  `reconcile_date` datetime NOT NULL,
+  `value_num` int(11) NOT NULL,
+  `value_denom` int(11) NOT NULL,
+  `quantity_num` int(11) NOT NULL,
+  `quantity_denom` int(11) NOT NULL,
+  `lot_guid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -29,20 +27,20 @@ CREATE TABLE `splits` (
 
 ## カラム一覧
 
-| 名前              | タイプ        | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| --------------- | ---------- | ------------ | -------- | ---------- | ---------- | -------- |
-| guid            | text       |              | false    |            |            |          |
-| tx_guid         | text       |              | false    |            |            |          |
-| account_guid    | text       |              | false    |            |            |          |
-| memo            | text       |              | false    |            |            |          |
-| action          | text       |              | false    |            |            |          |
-| reconcile_state | text       |              | false    |            |            |          |
-| reconcile_date  | text       | NULL         | true     |            |            |          |
-| value_num       | bigint(20) |              | false    |            |            |          |
-| value_denom     | bigint(20) |              | false    |            |            |          |
-| quantity_num    | bigint(20) |              | false    |            |            |          |
-| quantity_denom  | bigint(20) |              | false    |            |            |          |
-| lot_guid        | text       | NULL         | true     |            |            |          |
+| 名前              | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| --------------- | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid            | varchar(32) |              | false    |            |            |          |
+| tx_guid         | varchar(32) |              | false    |            |            |          |
+| account_guid    | varchar(32) |              | false    |            |            |          |
+| memo            | text        |              | false    |            |            |          |
+| action          | text        |              | false    |            |            |          |
+| reconcile_state | varchar(1)  |              | false    |            |            |          |
+| reconcile_date  | datetime    |              | false    |            |            |          |
+| value_num       | int(11)     |              | false    |            |            |          |
+| value_denom     | int(11)     |              | false    |            |            |          |
+| quantity_num    | int(11)     |              | false    |            |            |          |
+| quantity_denom  | int(11)     |              | false    |            |            |          |
+| lot_guid        | varchar(32) | NULL         | true     |            |            |          |
 
 ## 制約一覧
 
@@ -52,11 +50,9 @@ CREATE TABLE `splits` (
 
 ## INDEX一覧
 
-| 名前                        | 定義                                                       |
-| ------------------------- | -------------------------------------------------------- |
-| splits_account_guid_index | KEY splits_account_guid_index (account_guid) USING BTREE |
-| splits_tx_guid_index      | KEY splits_tx_guid_index (tx_guid) USING BTREE           |
-| PRIMARY                   | PRIMARY KEY (guid) USING BTREE                           |
+| 名前      | 定義                             |
+| ------- | ------------------------------ |
+| PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
 ## ER図
 

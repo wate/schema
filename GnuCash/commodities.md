@@ -7,7 +7,7 @@
 
 ```sql
 CREATE TABLE `commodities` (
-  `guid` text NOT NULL,
+  `guid` varchar(32) NOT NULL,
   `namespace` text NOT NULL,
   `mnemonic` text NOT NULL,
   `fullname` text DEFAULT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE `commodities` (
   `quote_flag` int(11) NOT NULL,
   `quote_source` text DEFAULT NULL,
   `quote_tz` text DEFAULT NULL,
-  PRIMARY KEY (`guid`(255))
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -24,17 +24,17 @@ CREATE TABLE `commodities` (
 
 ## カラム一覧
 
-| 名前           | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| ------------ | ------- | ------------ | -------- | ---------- | ---------- | -------- |
-| guid         | text    |              | false    |            |            |          |
-| namespace    | text    |              | false    |            |            |          |
-| mnemonic     | text    |              | false    |            |            |          |
-| fullname     | text    | NULL         | true     |            |            |          |
-| cusip        | text    | NULL         | true     |            |            |          |
-| fraction     | int(11) |              | false    |            |            |          |
-| quote_flag   | int(11) |              | false    |            |            |          |
-| quote_source | text    | NULL         | true     |            |            |          |
-| quote_tz     | text    | NULL         | true     |            |            |          |
+| 名前           | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ------------ | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid         | varchar(32) |              | false    |            |            |          |
+| namespace    | text        |              | false    |            |            |          |
+| mnemonic     | text        |              | false    |            |            |          |
+| fullname     | text        | NULL         | true     |            |            |          |
+| cusip        | text        | NULL         | true     |            |            |          |
+| fraction     | int(11)     |              | false    |            |            |          |
+| quote_flag   | int(11)     |              | false    |            |            |          |
+| quote_source | text        | NULL         | true     |            |            |          |
+| quote_tz     | text        | NULL         | true     |            |            |          |
 
 ## 制約一覧
 

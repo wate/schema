@@ -19,19 +19,19 @@
 <text text-anchor="start" x="153.7746" y="-238.3" font-family="Arial" font-size="14.00" fill="#666666">[BASE TABLE]</text>
 <polygon fill="none" stroke="#000000" points="46,-195.5 46,-225.5 254,-225.5 254,-195.5 46,-195.5"/>
 <text text-anchor="start" x="53" y="-206.9" font-family="Arial" font-size="14.00" fill="#000000">guid </text>
-<text text-anchor="start" x="83.345" y="-206.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="83.345" y="-206.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-165.5 46,-195.5 254,-195.5 254,-165.5 46,-165.5"/>
 <text text-anchor="start" x="53" y="-176.9" font-family="Arial" font-size="14.00" fill="#000000">currency_guid </text>
-<text text-anchor="start" x="144.7966" y="-176.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="144.7966" y="-176.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-135.5 46,-165.5 254,-165.5 254,-135.5 46,-135.5"/>
 <text text-anchor="start" x="53" y="-146.9" font-family="Arial" font-size="14.00" fill="#000000">num </text>
 <text text-anchor="start" x="84.1164" y="-146.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
 <polygon fill="none" stroke="#000000" points="46,-105.5 46,-135.5 254,-135.5 254,-105.5 46,-105.5"/>
 <text text-anchor="start" x="53" y="-116.9" font-family="Arial" font-size="14.00" fill="#000000">post_date </text>
-<text text-anchor="start" x="118.3674" y="-116.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="118.3674" y="-116.9" font-family="Arial" font-size="14.00" fill="#666666">[datetime]</text>
 <polygon fill="none" stroke="#000000" points="46,-75.5 46,-105.5 254,-105.5 254,-75.5 46,-75.5"/>
 <text text-anchor="start" x="53" y="-86.9" font-family="Arial" font-size="14.00" fill="#000000">enter_date </text>
-<text text-anchor="start" x="123.8106" y="-86.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="123.8106" y="-86.9" font-family="Arial" font-size="14.00" fill="#666666">[datetime]</text>
 <polygon fill="none" stroke="#000000" points="46,-45.5 46,-75.5 254,-75.5 254,-45.5 46,-45.5"/>
 <text text-anchor="start" x="53" y="-56.9" font-family="Arial" font-size="14.00" fill="#000000">description </text>
 <text text-anchor="start" x="124.568" y="-56.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>

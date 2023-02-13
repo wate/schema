@@ -19,7 +19,7 @@
 <text text-anchor="start" x="171.2805" y="-478.3" font-family="Arial" font-size="14.00" fill="#666666">[BASE TABLE]</text>
 <polygon fill="none" stroke="#000000" points="46.5,-435.5 46.5,-465.5 271.5,-465.5 271.5,-435.5 46.5,-435.5"/>
 <text text-anchor="start" x="53.5" y="-446.9" font-family="Arial" font-size="14.00" fill="#000000">guid </text>
-<text text-anchor="start" x="83.845" y="-446.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="83.845" y="-446.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46.5,-405.5 46.5,-435.5 271.5,-435.5 271.5,-405.5 46.5,-405.5"/>
 <text text-anchor="start" x="53.5" y="-416.9" font-family="Arial" font-size="14.00" fill="#000000">name </text>
 <text text-anchor="start" x="92.399" y="-416.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
@@ -28,13 +28,13 @@
 <text text-anchor="start" x="107.1928" y="-386.9" font-family="Arial" font-size="14.00" fill="#666666">[int(11)]</text>
 <polygon fill="none" stroke="#000000" points="46.5,-345.5 46.5,-375.5 271.5,-375.5 271.5,-345.5 46.5,-345.5"/>
 <text text-anchor="start" x="53.5" y="-356.9" font-family="Arial" font-size="14.00" fill="#000000">start_date </text>
-<text text-anchor="start" x="119.636" y="-356.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="119.636" y="-356.9" font-family="Arial" font-size="14.00" fill="#666666">[date]</text>
 <polygon fill="none" stroke="#000000" points="46.5,-315.5 46.5,-345.5 271.5,-345.5 271.5,-315.5 46.5,-315.5"/>
 <text text-anchor="start" x="53.5" y="-326.9" font-family="Arial" font-size="14.00" fill="#000000">end_date </text>
-<text text-anchor="start" x="115.7594" y="-326.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="115.7594" y="-326.9" font-family="Arial" font-size="14.00" fill="#666666">[date]</text>
 <polygon fill="none" stroke="#000000" points="46.5,-285.5 46.5,-315.5 271.5,-315.5 271.5,-285.5 46.5,-285.5"/>
 <text text-anchor="start" x="53.5" y="-296.9" font-family="Arial" font-size="14.00" fill="#000000">last_occur </text>
-<text text-anchor="start" x="121.1788" y="-296.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="121.1788" y="-296.9" font-family="Arial" font-size="14.00" fill="#666666">[date]</text>
 <polygon fill="none" stroke="#000000" points="46.5,-255.5 46.5,-285.5 271.5,-285.5 271.5,-255.5 46.5,-255.5"/>
 <text text-anchor="start" x="53.5" y="-266.9" font-family="Arial" font-size="14.00" fill="#000000">num_occur </text>
 <text text-anchor="start" x="126.6248" y="-266.9" font-family="Arial" font-size="14.00" fill="#666666">[int(11)]</text>
@@ -58,7 +58,7 @@
 <text text-anchor="start" x="151.5392" y="-86.9" font-family="Arial" font-size="14.00" fill="#666666">[int(11)]</text>
 <polygon fill="none" stroke="#000000" points="46.5,-45.5 46.5,-75.5 271.5,-75.5 271.5,-45.5 46.5,-45.5"/>
 <text text-anchor="start" x="53.5" y="-56.9" font-family="Arial" font-size="14.00" fill="#000000">template_act_guid </text>
-<text text-anchor="start" x="171.7622" y="-56.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="171.7622" y="-56.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" stroke-width="3" points="44.5,-44.5 44.5,-502.5 272.5,-502.5 272.5,-44.5 44.5,-44.5"/>
 </g>
 </g>

@@ -19,7 +19,7 @@
 <text text-anchor="start" x="127.7545" y="-418.3" font-family="Arial" font-size="14.00" fill="#666666">[BASE TABLE]</text>
 <polygon fill="none" stroke="#000000" points="46,-375.5 46,-405.5 232,-405.5 232,-375.5 46,-375.5"/>
 <text text-anchor="start" x="53" y="-386.9" font-family="Arial" font-size="14.00" fill="#000000">guid </text>
-<text text-anchor="start" x="83.345" y="-386.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="83.345" y="-386.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-345.5 46,-375.5 232,-375.5 232,-345.5 46,-345.5"/>
 <text text-anchor="start" x="53" y="-356.9" font-family="Arial" font-size="14.00" fill="#000000">name </text>
 <text text-anchor="start" x="91.899" y="-356.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
@@ -34,7 +34,7 @@
 <text text-anchor="start" x="106.6648" y="-266.9" font-family="Arial" font-size="14.00" fill="#666666">[int(11)]</text>
 <polygon fill="none" stroke="#000000" points="46,-225.5 46,-255.5 232,-255.5 232,-225.5 46,-225.5"/>
 <text text-anchor="start" x="53" y="-236.9" font-family="Arial" font-size="14.00" fill="#000000">parent </text>
-<text text-anchor="start" x="96.5722" y="-236.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="96.5722" y="-236.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-195.5 46,-225.5 232,-225.5 232,-195.5 46,-195.5"/>
 <text text-anchor="start" x="53" y="-206.9" font-family="Arial" font-size="14.00" fill="#000000">type </text>
 <text text-anchor="start" x="83.3464" y="-206.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>

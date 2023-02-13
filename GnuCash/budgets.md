@@ -7,11 +7,11 @@
 
 ```sql
 CREATE TABLE `budgets` (
-  `guid` text NOT NULL,
+  `guid` varchar(32) NOT NULL,
   `name` text NOT NULL,
   `description` text DEFAULT NULL,
   `num_periods` int(11) NOT NULL,
-  PRIMARY KEY (`guid`(255))
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -19,12 +19,12 @@ CREATE TABLE `budgets` (
 
 ## カラム一覧
 
-| 名前          | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| ----------- | ------- | ------------ | -------- | ---------- | ---------- | -------- |
-| guid        | text    |              | false    |            |            |          |
-| name        | text    |              | false    |            |            |          |
-| description | text    | NULL         | true     |            |            |          |
-| num_periods | int(11) |              | false    |            |            |          |
+| 名前          | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ----------- | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid        | varchar(32) |              | false    |            |            |          |
+| name        | text        |              | false    |            |            |          |
+| description | text        | NULL         | true     |            |            |          |
+| num_periods | int(11)     |              | false    |            |            |          |
 
 ## 制約一覧
 

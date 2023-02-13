@@ -7,10 +7,10 @@
 
 ```sql
 CREATE TABLE `lots` (
-  `guid` text NOT NULL,
-  `account_guid` text DEFAULT NULL,
+  `guid` varchar(32) NOT NULL,
+  `account_guid` varchar(32) DEFAULT NULL,
   `is_closed` int(11) NOT NULL,
-  PRIMARY KEY (`guid`(255))
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -18,11 +18,11 @@ CREATE TABLE `lots` (
 
 ## カラム一覧
 
-| 名前           | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| ------------ | ------- | ------------ | -------- | ---------- | ---------- | -------- |
-| guid         | text    |              | false    |            |            |          |
-| account_guid | text    | NULL         | true     |            |            |          |
-| is_closed    | int(11) |              | false    |            |            |          |
+| 名前           | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ------------ | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid         | varchar(32) |              | false    |            |            |          |
+| account_guid | varchar(32) | NULL         | true     |            |            |          |
+| is_closed    | int(11)     |              | false    |            |            |          |
 
 ## 制約一覧
 

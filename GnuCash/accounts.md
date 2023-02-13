@@ -7,18 +7,18 @@
 
 ```sql
 CREATE TABLE `accounts` (
-  `guid` text NOT NULL,
+  `guid` varchar(32) NOT NULL,
   `name` text NOT NULL,
   `account_type` text NOT NULL,
-  `commodity_guid` text DEFAULT NULL,
+  `commodity_guid` varchar(32) NOT NULL,
   `commodity_scu` int(11) NOT NULL,
   `non_std_scu` int(11) NOT NULL,
-  `parent_guid` text DEFAULT NULL,
+  `parent_guid` varchar(32) DEFAULT NULL,
   `code` text DEFAULT NULL,
   `description` text DEFAULT NULL,
-  `hidden` int(11) DEFAULT NULL,
-  `placeholder` int(11) DEFAULT NULL,
-  PRIMARY KEY (`guid`(255))
+  `hidden` int(11) NOT NULL,
+  `placeholder` int(11) NOT NULL,
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -26,19 +26,19 @@ CREATE TABLE `accounts` (
 
 ## カラム一覧
 
-| 名前             | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| -------------- | ------- | ------------ | -------- | ---------- | ---------- | -------- |
-| guid           | text    |              | false    |            |            |          |
-| name           | text    |              | false    |            |            |          |
-| account_type   | text    |              | false    |            |            |          |
-| commodity_guid | text    | NULL         | true     |            |            |          |
-| commodity_scu  | int(11) |              | false    |            |            |          |
-| non_std_scu    | int(11) |              | false    |            |            |          |
-| parent_guid    | text    | NULL         | true     |            |            |          |
-| code           | text    | NULL         | true     |            |            |          |
-| description    | text    | NULL         | true     |            |            |          |
-| hidden         | int(11) | NULL         | true     |            |            |          |
-| placeholder    | int(11) | NULL         | true     |            |            |          |
+| 名前             | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| -------------- | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid           | varchar(32) |              | false    |            |            |          |
+| name           | text        |              | false    |            |            |          |
+| account_type   | text        |              | false    |            |            |          |
+| commodity_guid | varchar(32) |              | false    |            |            |          |
+| commodity_scu  | int(11)     |              | false    |            |            |          |
+| non_std_scu    | int(11)     |              | false    |            |            |          |
+| parent_guid    | varchar(32) | NULL         | true     |            |            |          |
+| code           | text        | NULL         | true     |            |            |          |
+| description    | text        | NULL         | true     |            |            |          |
+| hidden         | int(11)     |              | false    |            |            |          |
+| placeholder    | int(11)     |              | false    |            |            |          |
 
 ## 制約一覧
 

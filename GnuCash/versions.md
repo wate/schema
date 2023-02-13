@@ -7,9 +7,8 @@
 
 ```sql
 CREATE TABLE `versions` (
-  `table_name` text NOT NULL,
-  `table_version` int(11) NOT NULL,
-  PRIMARY KEY (`table_name`(255))
+  `table_name` tinytext DEFAULT NULL,
+  `table_version` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -17,22 +16,10 @@ CREATE TABLE `versions` (
 
 ## カラム一覧
 
-| 名前            | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| ------------- | ------- | ------------ | -------- | ---------- | ---------- | -------- |
-| table_name    | text    |              | false    |            |            |          |
-| table_version | int(11) |              | false    |            |            |          |
-
-## 制約一覧
-
-| 名前      | タイプ         | 定義                       |
-| ------- | ----------- | ------------------------ |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (table_name) |
-
-## INDEX一覧
-
-| 名前      | 定義                                   |
-| ------- | ------------------------------------ |
-| PRIMARY | PRIMARY KEY (table_name) USING BTREE |
+| 名前            | タイプ      | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ------------- | -------- | ------------ | -------- | ---------- | ---------- | -------- |
+| table_name    | tinytext | NULL         | true     |            |            |          |
+| table_version | int(11)  | NULL         | true     |            |            |          |
 
 ## ER図
 

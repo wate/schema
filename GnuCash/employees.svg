@@ -19,7 +19,7 @@
 <text text-anchor="start" x="143.7724" y="-658.3" font-family="Arial" font-size="14.00" fill="#666666">[BASE TABLE]</text>
 <polygon fill="none" stroke="#000000" points="46,-615.5 46,-645.5 244,-645.5 244,-615.5 46,-615.5"/>
 <text text-anchor="start" x="53" y="-626.9" font-family="Arial" font-size="14.00" fill="#000000">guid </text>
-<text text-anchor="start" x="83.345" y="-626.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="83.345" y="-626.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-585.5 46,-615.5 244,-615.5 244,-585.5 46,-585.5"/>
 <text text-anchor="start" x="53" y="-596.9" font-family="Arial" font-size="14.00" fill="#000000">username </text>
 <text text-anchor="start" x="119.1248" y="-596.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
@@ -37,10 +37,10 @@
 <text text-anchor="start" x="93.453" y="-476.9" font-family="Arial" font-size="14.00" fill="#666666">[int(11)]</text>
 <polygon fill="none" stroke="#000000" points="46,-435.5 46,-465.5 244,-465.5 244,-435.5 46,-435.5"/>
 <text text-anchor="start" x="53" y="-446.9" font-family="Arial" font-size="14.00" fill="#000000">currency </text>
-<text text-anchor="start" x="110.5596" y="-446.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="110.5596" y="-446.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-405.5 46,-435.5 244,-435.5 244,-405.5 46,-405.5"/>
 <text text-anchor="start" x="53" y="-416.9" font-family="Arial" font-size="14.00" fill="#000000">ccard_guid </text>
-<text text-anchor="start" x="125.3534" y="-416.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="125.3534" y="-416.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-375.5 46,-405.5 244,-405.5 244,-375.5 46,-375.5"/>
 <text text-anchor="start" x="53" y="-386.9" font-family="Arial" font-size="14.00" fill="#000000">workday_num </text>
 <text text-anchor="start" x="144.014" y="-386.9" font-family="Arial" font-size="14.00" fill="#666666">[bigint(20)]</text>

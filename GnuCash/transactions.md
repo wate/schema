@@ -7,14 +7,13 @@
 
 ```sql
 CREATE TABLE `transactions` (
-  `guid` text NOT NULL,
-  `currency_guid` text NOT NULL,
+  `guid` varchar(32) NOT NULL,
+  `currency_guid` varchar(32) NOT NULL,
   `num` text NOT NULL,
-  `post_date` text DEFAULT NULL,
-  `enter_date` text DEFAULT NULL,
+  `post_date` datetime NOT NULL,
+  `enter_date` datetime NOT NULL,
   `description` text DEFAULT NULL,
-  PRIMARY KEY (`guid`(255)),
-  KEY `tx_post_date_index` (`post_date`(19))
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -22,14 +21,14 @@ CREATE TABLE `transactions` (
 
 ## カラム一覧
 
-| 名前            | タイプ    | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| ------------- | ------ | ------------ | -------- | ---------- | ---------- | -------- |
-| guid          | text   |              | false    |            |            |          |
-| currency_guid | text   |              | false    |            |            |          |
-| num           | text   |              | false    |            |            |          |
-| post_date     | text   | NULL         | true     |            |            |          |
-| enter_date    | text   | NULL         | true     |            |            |          |
-| description   | text   | NULL         | true     |            |            |          |
+| 名前            | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ------------- | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid          | varchar(32) |              | false    |            |            |          |
+| currency_guid | varchar(32) |              | false    |            |            |          |
+| num           | text        |              | false    |            |            |          |
+| post_date     | datetime    |              | false    |            |            |          |
+| enter_date    | datetime    |              | false    |            |            |          |
+| description   | text        | NULL         | true     |            |            |          |
 
 ## 制約一覧
 
@@ -39,10 +38,9 @@ CREATE TABLE `transactions` (
 
 ## INDEX一覧
 
-| 名前                 | 定義                                             |
-| ------------------ | ---------------------------------------------- |
-| tx_post_date_index | KEY tx_post_date_index (post_date) USING BTREE |
-| PRIMARY            | PRIMARY KEY (guid) USING BTREE                 |
+| 名前      | 定義                             |
+| ------- | ------------------------------ |
+| PRIMARY | PRIMARY KEY (guid) USING BTREE |
 
 ## ER図
 

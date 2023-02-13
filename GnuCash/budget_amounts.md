@@ -8,8 +8,8 @@
 ```sql
 CREATE TABLE `budget_amounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `budget_guid` text NOT NULL,
-  `account_guid` text NOT NULL,
+  `budget_guid` varchar(32) NOT NULL,
+  `account_guid` varchar(32) NOT NULL,
   `period_num` int(11) NOT NULL,
   `amount_num` bigint(20) NOT NULL,
   `amount_denom` bigint(20) NOT NULL,
@@ -21,14 +21,14 @@ CREATE TABLE `budget_amounts` (
 
 ## カラム一覧
 
-| 名前           | タイプ        | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
-| ------------ | ---------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
-| id           | int(11)    |              | false    | auto_increment   |            |            |          |
-| budget_guid  | text       |              | false    |                  |            |            |          |
-| account_guid | text       |              | false    |                  |            |            |          |
-| period_num   | int(11)    |              | false    |                  |            |            |          |
-| amount_num   | bigint(20) |              | false    |                  |            |            |          |
-| amount_denom | bigint(20) |              | false    |                  |            |            |          |
+| 名前           | タイプ         | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
+| ------------ | ----------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
+| id           | int(11)     |              | false    | auto_increment   |            |            |          |
+| budget_guid  | varchar(32) |              | false    |                  |            |            |          |
+| account_guid | varchar(32) |              | false    |                  |            |            |          |
+| period_num   | int(11)     |              | false    |                  |            |            |          |
+| amount_num   | bigint(20)  |              | false    |                  |            |            |          |
+| amount_denom | bigint(20)  |              | false    |                  |            |            |          |
 
 ## 制約一覧
 

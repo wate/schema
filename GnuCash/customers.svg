@@ -19,7 +19,7 @@
 <text text-anchor="start" x="139.7663" y="-958.3" font-family="Arial" font-size="14.00" fill="#666666">[BASE TABLE]</text>
 <polygon fill="none" stroke="#000000" points="46,-915.5 46,-945.5 240,-945.5 240,-915.5 46,-915.5"/>
 <text text-anchor="start" x="53" y="-926.9" font-family="Arial" font-size="14.00" fill="#000000">guid </text>
-<text text-anchor="start" x="83.345" y="-926.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="83.345" y="-926.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-885.5 46,-915.5 240,-915.5 240,-885.5 46,-885.5"/>
 <text text-anchor="start" x="53" y="-896.9" font-family="Arial" font-size="14.00" fill="#000000">name </text>
 <text text-anchor="start" x="91.899" y="-896.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
@@ -46,7 +46,7 @@
 <text text-anchor="start" x="141.6872" y="-686.9" font-family="Arial" font-size="14.00" fill="#666666">[bigint(20)]</text>
 <polygon fill="none" stroke="#000000" points="46,-645.5 46,-675.5 240,-675.5 240,-645.5 46,-645.5"/>
 <text text-anchor="start" x="53" y="-656.9" font-family="Arial" font-size="14.00" fill="#000000">currency </text>
-<text text-anchor="start" x="110.5596" y="-656.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="110.5596" y="-656.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-615.5 46,-645.5 240,-645.5 240,-615.5 46,-615.5"/>
 <text text-anchor="start" x="53" y="-626.9" font-family="Arial" font-size="14.00" fill="#000000">tax_override </text>
 <text text-anchor="start" x="133.9046" y="-626.9" font-family="Arial" font-size="14.00" fill="#666666">[int(11)]</text>
@@ -100,13 +100,13 @@
 <text text-anchor="start" x="151.7924" y="-146.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
 <polygon fill="none" stroke="#000000" points="46,-105.5 46,-135.5 240,-135.5 240,-105.5 46,-105.5"/>
 <text text-anchor="start" x="53" y="-116.9" font-family="Arial" font-size="14.00" fill="#000000">terms </text>
-<text text-anchor="start" x="91.885" y="-116.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="91.885" y="-116.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" points="46,-75.5 46,-105.5 240,-105.5 240,-75.5 46,-75.5"/>
 <text text-anchor="start" x="53" y="-86.9" font-family="Arial" font-size="14.00" fill="#000000">tax_included </text>
 <text text-anchor="start" x="135.4726" y="-86.9" font-family="Arial" font-size="14.00" fill="#666666">[int(11)]</text>
 <polygon fill="none" stroke="#000000" points="46,-45.5 46,-75.5 240,-75.5 240,-45.5 46,-45.5"/>
 <text text-anchor="start" x="53" y="-56.9" font-family="Arial" font-size="14.00" fill="#000000">taxtable </text>
-<text text-anchor="start" x="105.9088" y="-56.9" font-family="Arial" font-size="14.00" fill="#666666">[text]</text>
+<text text-anchor="start" x="105.9088" y="-56.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(32)]</text>
 <polygon fill="none" stroke="#000000" stroke-width="3" points="44.5,-44.5 44.5,-982.5 241.5,-982.5 241.5,-44.5 44.5,-44.5"/>
 </g>
 </g>

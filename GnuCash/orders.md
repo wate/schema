@@ -7,16 +7,16 @@
 
 ```sql
 CREATE TABLE `orders` (
-  `guid` text NOT NULL,
+  `guid` varchar(32) NOT NULL,
   `id` text NOT NULL,
   `notes` text NOT NULL,
   `reference` text NOT NULL,
   `active` int(11) NOT NULL,
-  `date_opened` text NOT NULL,
-  `date_closed` text NOT NULL,
+  `date_opened` tinytext NOT NULL,
+  `date_closed` tinytext NOT NULL,
   `owner_type` int(11) NOT NULL,
-  `owner_guid` text NOT NULL,
-  PRIMARY KEY (`guid`(255))
+  `owner_guid` varchar(32) NOT NULL,
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -24,17 +24,17 @@ CREATE TABLE `orders` (
 
 ## カラム一覧
 
-| 名前          | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| ----------- | ------- | ------------ | -------- | ---------- | ---------- | -------- |
-| guid        | text    |              | false    |            |            |          |
-| id          | text    |              | false    |            |            |          |
-| notes       | text    |              | false    |            |            |          |
-| reference   | text    |              | false    |            |            |          |
-| active      | int(11) |              | false    |            |            |          |
-| date_opened | text    |              | false    |            |            |          |
-| date_closed | text    |              | false    |            |            |          |
-| owner_type  | int(11) |              | false    |            |            |          |
-| owner_guid  | text    |              | false    |            |            |          |
+| 名前          | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ----------- | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid        | varchar(32) |              | false    |            |            |          |
+| id          | text        |              | false    |            |            |          |
+| notes       | text        |              | false    |            |            |          |
+| reference   | text        |              | false    |            |            |          |
+| active      | int(11)     |              | false    |            |            |          |
+| date_opened | tinytext    |              | false    |            |            |          |
+| date_closed | tinytext    |              | false    |            |            |          |
+| owner_type  | int(11)     |              | false    |            |            |          |
+| owner_guid  | varchar(32) |              | false    |            |            |          |
 
 ## 制約一覧
 

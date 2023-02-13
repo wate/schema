@@ -7,12 +7,12 @@
 
 ```sql
 CREATE TABLE `schedxactions` (
-  `guid` text NOT NULL,
+  `guid` varchar(32) NOT NULL,
   `name` text DEFAULT NULL,
   `enabled` int(11) NOT NULL,
-  `start_date` text DEFAULT NULL,
-  `end_date` text DEFAULT NULL,
-  `last_occur` text DEFAULT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date DEFAULT NULL,
+  `last_occur` date DEFAULT NULL,
   `num_occur` int(11) NOT NULL,
   `rem_occur` int(11) NOT NULL,
   `auto_create` int(11) NOT NULL,
@@ -20,8 +20,8 @@ CREATE TABLE `schedxactions` (
   `adv_creation` int(11) NOT NULL,
   `adv_notify` int(11) NOT NULL,
   `instance_count` int(11) NOT NULL,
-  `template_act_guid` text NOT NULL,
-  PRIMARY KEY (`guid`(255))
+  `template_act_guid` varchar(32) NOT NULL,
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -29,22 +29,22 @@ CREATE TABLE `schedxactions` (
 
 ## カラム一覧
 
-| 名前                | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| ----------------- | ------- | ------------ | -------- | ---------- | ---------- | -------- |
-| guid              | text    |              | false    |            |            |          |
-| name              | text    | NULL         | true     |            |            |          |
-| enabled           | int(11) |              | false    |            |            |          |
-| start_date        | text    | NULL         | true     |            |            |          |
-| end_date          | text    | NULL         | true     |            |            |          |
-| last_occur        | text    | NULL         | true     |            |            |          |
-| num_occur         | int(11) |              | false    |            |            |          |
-| rem_occur         | int(11) |              | false    |            |            |          |
-| auto_create       | int(11) |              | false    |            |            |          |
-| auto_notify       | int(11) |              | false    |            |            |          |
-| adv_creation      | int(11) |              | false    |            |            |          |
-| adv_notify        | int(11) |              | false    |            |            |          |
-| instance_count    | int(11) |              | false    |            |            |          |
-| template_act_guid | text    |              | false    |            |            |          |
+| 名前                | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ----------------- | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid              | varchar(32) |              | false    |            |            |          |
+| name              | text        | NULL         | true     |            |            |          |
+| enabled           | int(11)     |              | false    |            |            |          |
+| start_date        | date        |              | false    |            |            |          |
+| end_date          | date        | NULL         | true     |            |            |          |
+| last_occur        | date        | NULL         | true     |            |            |          |
+| num_occur         | int(11)     |              | false    |            |            |          |
+| rem_occur         | int(11)     |              | false    |            |            |          |
+| auto_create       | int(11)     |              | false    |            |            |          |
+| auto_notify       | int(11)     |              | false    |            |            |          |
+| adv_creation      | int(11)     |              | false    |            |            |          |
+| adv_notify        | int(11)     |              | false    |            |            |          |
+| instance_count    | int(11)     |              | false    |            |            |          |
+| template_act_guid | varchar(32) |              | false    |            |            |          |
 
 ## 制約一覧
 

@@ -7,13 +7,10 @@
 
 ```sql
 CREATE TABLE `recurrences` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `obj_guid` text NOT NULL,
+  `obj_guid` varchar(32) NOT NULL,
   `recurrence_mult` int(11) NOT NULL,
   `recurrence_period_type` text NOT NULL,
-  `recurrence_period_start` text NOT NULL,
-  `recurrence_weekend_adjust` text NOT NULL,
-  PRIMARY KEY (`id`)
+  `recurrence_period_start` char(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -21,26 +18,12 @@ CREATE TABLE `recurrences` (
 
 ## カラム一覧
 
-| 名前                        | タイプ     | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
-| ------------------------- | ------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
-| id                        | int(11) |              | false    | auto_increment   |            |            |          |
-| obj_guid                  | text    |              | false    |                  |            |            |          |
-| recurrence_mult           | int(11) |              | false    |                  |            |            |          |
-| recurrence_period_type    | text    |              | false    |                  |            |            |          |
-| recurrence_period_start   | text    |              | false    |                  |            |            |          |
-| recurrence_weekend_adjust | text    |              | false    |                  |            |            |          |
-
-## 制約一覧
-
-| 名前      | タイプ         | 定義               |
-| ------- | ----------- | ---------------- |
-| PRIMARY | PRIMARY KEY | PRIMARY KEY (id) |
-
-## INDEX一覧
-
-| 名前      | 定義                           |
-| ------- | ---------------------------- |
-| PRIMARY | PRIMARY KEY (id) USING BTREE |
+| 名前                      | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ----------------------- | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| obj_guid                | varchar(32) |              | false    |            |            |          |
+| recurrence_mult         | int(11)     |              | false    |            |            |          |
+| recurrence_period_type  | text        |              | false    |            |            |          |
+| recurrence_period_start | char(8)     |              | false    |            |            |          |
 
 ## ER図
 

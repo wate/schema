@@ -8,8 +8,8 @@
 ```sql
 CREATE TABLE `taxtable_entries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `taxtable` text NOT NULL,
-  `account` text NOT NULL,
+  `taxtable` varchar(32) NOT NULL,
+  `account` varchar(32) NOT NULL,
   `amount_num` bigint(20) NOT NULL,
   `amount_denom` bigint(20) NOT NULL,
   `type` int(11) NOT NULL,
@@ -21,14 +21,14 @@ CREATE TABLE `taxtable_entries` (
 
 ## カラム一覧
 
-| 名前           | タイプ        | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
-| ------------ | ---------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
-| id           | int(11)    |              | false    | auto_increment   |            |            |          |
-| taxtable     | text       |              | false    |                  |            |            |          |
-| account      | text       |              | false    |                  |            |            |          |
-| amount_num   | bigint(20) |              | false    |                  |            |            |          |
-| amount_denom | bigint(20) |              | false    |                  |            |            |          |
-| type         | int(11)    |              | false    |                  |            |            |          |
+| 名前           | タイプ         | デフォルト値       | NULL許可   | Extra Definition | 子テーブル      | 親テーブル      | コメント     |
+| ------------ | ----------- | ------------ | -------- | ---------------- | ---------- | ---------- | -------- |
+| id           | int(11)     |              | false    | auto_increment   |            |            |          |
+| taxtable     | varchar(32) |              | false    |                  |            |            |          |
+| account      | varchar(32) |              | false    |                  |            |            |          |
+| amount_num   | bigint(20)  |              | false    |                  |            |            |          |
+| amount_denom | bigint(20)  |              | false    |                  |            |            |          |
+| type         | int(11)     |              | false    |                  |            |            |          |
 
 ## 制約一覧
 

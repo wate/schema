@@ -7,7 +7,7 @@
 
 ```sql
 CREATE TABLE `customers` (
-  `guid` text NOT NULL,
+  `guid` varchar(32) NOT NULL,
   `name` text NOT NULL,
   `id` text NOT NULL,
   `notes` text NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE `customers` (
   `discount_denom` bigint(20) NOT NULL,
   `credit_num` bigint(20) NOT NULL,
   `credit_denom` bigint(20) NOT NULL,
-  `currency` text NOT NULL,
+  `currency` varchar(32) NOT NULL,
   `tax_override` int(11) NOT NULL,
   `addr_name` text DEFAULT NULL,
   `addr_addr1` text DEFAULT NULL,
@@ -34,10 +34,10 @@ CREATE TABLE `customers` (
   `shipaddr_phone` text DEFAULT NULL,
   `shipaddr_fax` text DEFAULT NULL,
   `shipaddr_email` text DEFAULT NULL,
-  `terms` text DEFAULT NULL,
+  `terms` varchar(32) DEFAULT NULL,
   `tax_included` int(11) DEFAULT NULL,
-  `taxtable` text DEFAULT NULL,
-  PRIMARY KEY (`guid`(255))
+  `taxtable` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -45,38 +45,38 @@ CREATE TABLE `customers` (
 
 ## カラム一覧
 
-| 名前             | タイプ        | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| -------------- | ---------- | ------------ | -------- | ---------- | ---------- | -------- |
-| guid           | text       |              | false    |            |            |          |
-| name           | text       |              | false    |            |            |          |
-| id             | text       |              | false    |            |            |          |
-| notes          | text       |              | false    |            |            |          |
-| active         | int(11)    |              | false    |            |            |          |
-| discount_num   | bigint(20) |              | false    |            |            |          |
-| discount_denom | bigint(20) |              | false    |            |            |          |
-| credit_num     | bigint(20) |              | false    |            |            |          |
-| credit_denom   | bigint(20) |              | false    |            |            |          |
-| currency       | text       |              | false    |            |            |          |
-| tax_override   | int(11)    |              | false    |            |            |          |
-| addr_name      | text       | NULL         | true     |            |            |          |
-| addr_addr1     | text       | NULL         | true     |            |            |          |
-| addr_addr2     | text       | NULL         | true     |            |            |          |
-| addr_addr3     | text       | NULL         | true     |            |            |          |
-| addr_addr4     | text       | NULL         | true     |            |            |          |
-| addr_phone     | text       | NULL         | true     |            |            |          |
-| addr_fax       | text       | NULL         | true     |            |            |          |
-| addr_email     | text       | NULL         | true     |            |            |          |
-| shipaddr_name  | text       | NULL         | true     |            |            |          |
-| shipaddr_addr1 | text       | NULL         | true     |            |            |          |
-| shipaddr_addr2 | text       | NULL         | true     |            |            |          |
-| shipaddr_addr3 | text       | NULL         | true     |            |            |          |
-| shipaddr_addr4 | text       | NULL         | true     |            |            |          |
-| shipaddr_phone | text       | NULL         | true     |            |            |          |
-| shipaddr_fax   | text       | NULL         | true     |            |            |          |
-| shipaddr_email | text       | NULL         | true     |            |            |          |
-| terms          | text       | NULL         | true     |            |            |          |
-| tax_included   | int(11)    | NULL         | true     |            |            |          |
-| taxtable       | text       | NULL         | true     |            |            |          |
+| 名前             | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| -------------- | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid           | varchar(32) |              | false    |            |            |          |
+| name           | text        |              | false    |            |            |          |
+| id             | text        |              | false    |            |            |          |
+| notes          | text        |              | false    |            |            |          |
+| active         | int(11)     |              | false    |            |            |          |
+| discount_num   | bigint(20)  |              | false    |            |            |          |
+| discount_denom | bigint(20)  |              | false    |            |            |          |
+| credit_num     | bigint(20)  |              | false    |            |            |          |
+| credit_denom   | bigint(20)  |              | false    |            |            |          |
+| currency       | varchar(32) |              | false    |            |            |          |
+| tax_override   | int(11)     |              | false    |            |            |          |
+| addr_name      | text        | NULL         | true     |            |            |          |
+| addr_addr1     | text        | NULL         | true     |            |            |          |
+| addr_addr2     | text        | NULL         | true     |            |            |          |
+| addr_addr3     | text        | NULL         | true     |            |            |          |
+| addr_addr4     | text        | NULL         | true     |            |            |          |
+| addr_phone     | text        | NULL         | true     |            |            |          |
+| addr_fax       | text        | NULL         | true     |            |            |          |
+| addr_email     | text        | NULL         | true     |            |            |          |
+| shipaddr_name  | text        | NULL         | true     |            |            |          |
+| shipaddr_addr1 | text        | NULL         | true     |            |            |          |
+| shipaddr_addr2 | text        | NULL         | true     |            |            |          |
+| shipaddr_addr3 | text        | NULL         | true     |            |            |          |
+| shipaddr_addr4 | text        | NULL         | true     |            |            |          |
+| shipaddr_phone | text        | NULL         | true     |            |            |          |
+| shipaddr_fax   | text        | NULL         | true     |            |            |          |
+| shipaddr_email | text        | NULL         | true     |            |            |          |
+| terms          | varchar(32) | NULL         | true     |            |            |          |
+| tax_included   | int(11)     | NULL         | true     |            |            |          |
+| taxtable       | varchar(32) | NULL         | true     |            |            |          |
 
 ## 制約一覧
 

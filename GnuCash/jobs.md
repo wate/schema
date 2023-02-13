@@ -7,14 +7,14 @@
 
 ```sql
 CREATE TABLE `jobs` (
-  `guid` text NOT NULL,
+  `guid` varchar(32) NOT NULL,
   `id` text NOT NULL,
   `name` text NOT NULL,
   `reference` text NOT NULL,
   `active` int(11) NOT NULL,
   `owner_type` int(11) DEFAULT NULL,
-  `owner_guid` text DEFAULT NULL,
-  PRIMARY KEY (`guid`(255))
+  `owner_guid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -22,15 +22,15 @@ CREATE TABLE `jobs` (
 
 ## カラム一覧
 
-| 名前         | タイプ     | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| ---------- | ------- | ------------ | -------- | ---------- | ---------- | -------- |
-| guid       | text    |              | false    |            |            |          |
-| id         | text    |              | false    |            |            |          |
-| name       | text    |              | false    |            |            |          |
-| reference  | text    |              | false    |            |            |          |
-| active     | int(11) |              | false    |            |            |          |
-| owner_type | int(11) | NULL         | true     |            |            |          |
-| owner_guid | text    | NULL         | true     |            |            |          |
+| 名前         | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ---------- | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid       | varchar(32) |              | false    |            |            |          |
+| id         | text        |              | false    |            |            |          |
+| name       | text        |              | false    |            |            |          |
+| reference  | text        |              | false    |            |            |          |
+| active     | int(11)     |              | false    |            |            |          |
+| owner_type | int(11)     | NULL         | true     |            |            |          |
+| owner_guid | varchar(32) | NULL         | true     |            |            |          |
 
 ## 制約一覧
 

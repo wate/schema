@@ -7,12 +7,12 @@
 
 ```sql
 CREATE TABLE `taxtables` (
-  `guid` text NOT NULL,
-  `name` text NOT NULL,
+  `guid` varchar(32) NOT NULL,
+  `name` tinytext NOT NULL,
   `refcount` bigint(20) NOT NULL,
   `invisible` int(11) NOT NULL,
-  `parent` text DEFAULT NULL,
-  PRIMARY KEY (`guid`(255))
+  `parent` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -20,13 +20,13 @@ CREATE TABLE `taxtables` (
 
 ## カラム一覧
 
-| 名前        | タイプ        | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| --------- | ---------- | ------------ | -------- | ---------- | ---------- | -------- |
-| guid      | text       |              | false    |            |            |          |
-| name      | text       |              | false    |            |            |          |
-| refcount  | bigint(20) |              | false    |            |            |          |
-| invisible | int(11)    |              | false    |            |            |          |
-| parent    | text       | NULL         | true     |            |            |          |
+| 名前        | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| --------- | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid      | varchar(32) |              | false    |            |            |          |
+| name      | tinytext    |              | false    |            |            |          |
+| refcount  | bigint(20)  |              | false    |            |            |          |
+| invisible | int(11)     |              | false    |            |            |          |
+| parent    | varchar(32) | NULL         | true     |            |            |          |
 
 ## 制約一覧
 

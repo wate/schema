@@ -19,7 +19,7 @@
 | [lots](lots.md)                         | 3          |          | BASE TABLE |
 | [orders](orders.md)                     | 9          |          | BASE TABLE |
 | [prices](prices.md)                     | 8          |          | BASE TABLE |
-| [recurrences](recurrences.md)           | 6          |          | BASE TABLE |
+| [recurrences](recurrences.md)           | 4          |          | BASE TABLE |
 | [schedxactions](schedxactions.md)       | 14         |          | BASE TABLE |
 | [slots](slots.md)                       | 12         |          | BASE TABLE |
 | [splits](splits.md)                     | 12         |          | BASE TABLE |

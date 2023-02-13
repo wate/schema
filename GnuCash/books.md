@@ -7,10 +7,10 @@
 
 ```sql
 CREATE TABLE `books` (
-  `guid` text NOT NULL,
-  `root_account_guid` text NOT NULL,
-  `root_template_guid` text NOT NULL,
-  PRIMARY KEY (`guid`(255))
+  `guid` varchar(32) NOT NULL,
+  `root_account_guid` varchar(32) NOT NULL,
+  `root_template_guid` varchar(32) NOT NULL,
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 ```
 
@@ -18,11 +18,11 @@ CREATE TABLE `books` (
 
 ## カラム一覧
 
-| 名前                 | タイプ    | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
-| ------------------ | ------ | ------------ | -------- | ---------- | ---------- | -------- |
-| guid               | text   |              | false    |            |            |          |
-| root_account_guid  | text   |              | false    |            |            |          |
-| root_template_guid | text   |              | false    |            |            |          |
+| 名前                 | タイプ         | デフォルト値       | NULL許可   | 子テーブル      | 親テーブル      | コメント     |
+| ------------------ | ----------- | ------------ | -------- | ---------- | ---------- | -------- |
+| guid               | varchar(32) |              | false    |            |            |          |
+| root_account_guid  | varchar(32) |              | false    |            |            |          |
+| root_template_guid | varchar(32) |              | false    |            |            |          |
 
 ## 制約一覧
 
