@@ -1,0 +1,298 @@
+---
+# --------------
+# tbls config file
+# --------------
+### Name
+name: Leantime
+### Description
+desc: version 3(WIP)
+### Table format
+format:
+  # Adjust the column width of Markdown format table
+  # Default is false
+  adjust: true
+  # Sort the order of table list and  columns
+  # Default is false
+  sort: false
+### ER diagram
+er:
+  # Skip generation of ER diagram
+  # Default is false
+  skip: false
+  # ER diagram format
+  # Default is `svg`
+  format: svg
+  # Add table/column comment to ER diagram
+  # Default is false
+  comment: true
+  # Distance between tables that display relations in the ER
+  # Default is 1
+  # distance: 1
+  # ER diagram (png/jpg) font (font name, font file, font path or keyword)
+  # Default is "" ( system default )
+  # font: ""
+### Labels
+# labels:
+#   - cmdb
+#   - analytics
+### Dictionary
+dict:
+  Tables: テーブル一覧
+  Description: 概要
+  Columns: カラム一覧
+  Indexes: INDEX一覧
+  Constraints: 制約一覧
+  Triggers: トリガー
+  Relations: ER図
+  Name: 名前
+  Comment: コメント
+  Type: タイプ
+  Default: デフォルト値
+  Children: 子テーブル
+  Parents: 親テーブル
+  Definition: 定義
+  Table Definition: テーブル定義
+### Comments
+# comments:
+#   - table: posts
+#     columnComments:
+#       body: post body
+#   - table: logs
+#     tableComment: audit log table
+#     labels:
+#       - user
+#       - privacy data
+#   - table: post_comments
+#     tableComment: post and comments View table
+#     columnComments:
+#       id: comments.id
+#       title: posts.title
+#       post_user: posts.users.username
+#       comment_user: comments.users.username
+#       created: comments.created
+#       updated: comments.updated
+## Relations
+relations:
+  ## zp_approvals
+  # - table: zp_approvals
+  # `module` varchar(100) DEFAULT NULL,
+  # `entityId` int(11) DEFAULT NULL,
+  # `requestorId` int(11) DEFAULT NULL,
+  # `approverId` int(11) DEFAULT NULL,
+  # `approvalStatus` int(11) DEFAULT NULL,
+  ## zp_audit
+  - table: zp_audit
+    columns:
+      - projectId
+    parentTable: zp_projects
+    parentColumns:
+      - id
+  - table: zp_audit
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  # `action` varchar(45) DEFAULT NULL,
+  # `entity` varchar(45) DEFAULT NULL,
+  # `entityId` int(11) DEFAULT NULL,
+  ## zp_calendar
+  - table: zp_calendar
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  ## zp_canvas
+  - table: zp_canvas
+    columns:
+      - projectId
+    parentTable: zp_projects
+    parentColumns:
+      - id
+  ## zp_canvas_items
+  - table: zp_canvas_items
+    columns:
+      - canvasId
+    parentTable: zp_canvas
+    parentColumns:
+      - id
+  # `milestoneId` varchar(255) DEFAULT NULL,  
+  ## zp_comment
+  - table: zp_comment
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  - table: zp_comment
+    columns:
+      - commentParent
+    parentTable: zp_comment
+    parentColumns:
+      - id
+  # `moduleId` int(11) DEFAULT NULL,
+  ## zp_entity_relationship
+  # - table: zp_entity_relationship
+  ## zp_file
+  - table: zp_file
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  # `module` enum('project','ticket','client','user','lead','export','private') DEFAULT NULL,
+  # `moduleId` int(11) DEFAULT NULL,
+  ## zp_gcallinks
+  - table: zp_gcallinks
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  ## zp_integration
+  # - table: zp_integration
+  ## zp_note
+  - table: zp_note
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  ## zp_notifications
+  - table: zp_notifications
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  # `read` int(11) DEFAULT NULL,
+  # `type` varchar(45) DEFAULT NULL,
+  # `module` varchar(45) DEFAULT NULL,
+  # `moduleId` int(11) DEFAULT NULL,
+  # `authorId` int(11) DEFAULT NULL,
+  ## zp_projects
+  - table: zp_projects
+    columns:
+      - clientId
+    parentTable: zp_clients
+    parentColumns:
+      - id
+  ## zp_punch_clock
+  - table: zp_punch_clock
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  # `punchIn` int(11) DEFAULT NULL,
+  ## zp_queue
+  - table: zp_queue
+    columns:
+      - projectId
+    parentTable: zp_projects
+    parentColumns:
+      - id
+  - table: zp_queue
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  ## zp_reactions
+  - table: zp_reactions
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  # `moduleId` int(11) DEFAULT NULL,
+  # `module` varchar(45) DEFAULT NULL,
+  ## zp_read
+  - table: zp_read
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  # `module` enum('ticket','message') DEFAULT NULL,
+  # `moduleId` int(11) DEFAULT NULL,
+  ## zp_relationuserproject
+  - table: zp_relationuserproject
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  - table: zp_relationuserproject
+    columns:
+      - projectId
+    parentTable: zp_projects
+    parentColumns:
+      - id
+  ## zp_sprints
+  - table: zp_sprints
+    columns:
+      - projectId
+    parentTable: zp_projects
+    parentColumns:
+      - id
+  ## zp_stats
+  - table: zp_stats
+    columns:
+      - sprintId
+    parentTable: zp_sprints
+    parentColumns:
+      - id
+  - table: zp_stats
+    columns:
+      - projectId
+    parentTable: zp_projects
+    parentColumns:
+      - id
+  ## zp_tickethistory
+  - table: zp_tickethistory
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  - table: zp_tickethistory
+    columns:
+      - ticketId
+    parentTable: zp_tickets
+    parentColumns:
+      - id
+  ## zp_tickets
+  - table: zp_tickets
+    columns:
+      - projectId
+    parentTable: zp_projects
+    parentColumns:
+      - id
+  - table: zp_tickets
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  - table: zp_tickets
+    columns:
+      - dependingTicketId
+    parentTable: zp_tickets
+    parentColumns:
+      - id
+  ## zp_timesheets
+  - table: zp_timesheets
+    columns:
+      - userId
+    parentTable: zp_user
+    parentColumns:
+      - id
+  ## zp_user
+  - table: zp_user
+    columns:
+      - clientId
+    parentTable: zp_clients
+    parentColumns:
+      - id
